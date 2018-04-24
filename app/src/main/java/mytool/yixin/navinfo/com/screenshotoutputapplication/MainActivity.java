@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -19,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -31,8 +29,11 @@ import java.util.concurrent.Executors;
 
 import mytool.yixin.navinfo.com.screenshotserver.IImagePath;
 
+import static mytool.yixin.navinfo.com.screenshotoutputapplication.BitmapUtils.getDiskBitmap;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
+
     private ImageView imageView;
     private Button btnBindService;
     private Button btnUnbindService;
@@ -40,36 +41,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // 连接 断开连接 发送数据到服务器 的按钮变量
     private Button btnConnect, btnDisconnect, btnSend;
 
-    // 显示接收服务器消息 按钮
-    private TextView Receive, receive_message;
-
-    // 输入需要发送的消息 输入框
-    private EditText mEdit, mEditSocket;
-    // 线程池
-    // 为了方便展示,此处直接采用线程池进行线程管理,而没有一个个开线程
-    private ExecutorService mThreadPool;
-    // Socket变量
-    private Socket socket;
-
+    /**
+     * 显示接收服务器消息 按钮
+     */
+    private TextView Receive, receiveMessage;
 
     /**
-     * 接收服务器消息 变量
+     * 输入需要发送的消息 输入框
      */
-    // 输入流对象
-    private InputStream is;
-
-    // 输入流读取器对象
-    private InputStreamReader isr;
+    private EditText mEdit;
+    /**
+     *  线程池
+     */
+    private ExecutorService mThreadPool;
+    private Socket socket;
     private BufferedReader br;
-
-    // 接收服务器发送过来的消息
+    /**
+     * 接收服务器发送过来的消息
+     */
     private String response;
 
 
     /**
      * 发送消息到服务器 变量
      */
-    // 输出流对象
     private OutputStream outputStream;
 
     public static final String IP = "localhost";
@@ -130,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     System.out.println("截图图片后的时间是：" + df.format(System.currentTimeMillis()));
 
-                    receive_message.setText(("图片地址是： " + response));
+                    receiveMessage.setText(("图片地址是： " + response));
                     Bitmap bitmap2 = getDiskBitmap(response);
                     if (bitmap2 != null) {
                         imageView.setImageBitmap(bitmap2);
@@ -147,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            //do omething
             try {
                 String imagePath = mBinder.getImagePath();
                 Message msg = mHandler.obtainMessage();
@@ -160,37 +154,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            //每隔1s循环执行run方法
-            mHandler.postDelayed(this, 10);
+            if (isBind){
+                //每隔1s循环执行run方法
+                mHandler.postDelayed(this, 10);
+            }
         }
     };
 
-
+    /**
+     * 初始化操作
+     */
     private void init() {
-        /**
-         * 初始化操作
-         */
-
-        // 初始化所有按钮
         btnConnect = (Button) findViewById(R.id.connect);
         btnDisconnect = (Button) findViewById(R.id.disconnect);
         btnSend = (Button) findViewById(R.id.send);
         mEdit = (EditText) findViewById(R.id.edit);
-        receive_message = (TextView) findViewById(R.id.receive_message);
+        receiveMessage = (TextView) findViewById(R.id.receive_message);
         Receive = (Button) findViewById(R.id.Receive);
 
-        // 初始化线程池
         mThreadPool = Executors.newCachedThreadPool();
-
 
         btnConnect.setOnClickListener(this);
 
-
         Receive.setOnClickListener(this);
 
-
         btnSend.setOnClickListener(this);
-
 
         btnDisconnect.setOnClickListener(this);
 
@@ -211,6 +199,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    /**
+     * 绑定服务
+     */
     private void bindService() {
 
         Intent serviceIntent = new Intent().setComponent(new ComponentName("zzy.test.service", "zzy.test.service.ScreenShotService"));
@@ -237,18 +228,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
-    private Bitmap getDiskBitmap(String pathString) {
-        Bitmap bitmap = null;
-        try {
-            File file = new File(pathString);
-            if (file.exists()) {
-                bitmap = BitmapFactory.decodeFile(pathString);
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-        return bitmap;
-    }
+
 
 
     /**
@@ -324,13 +304,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 while (socket.isConnected()) {
                     // 步骤1：创建输入流对象InputStream
-                    is = socket.getInputStream();
+                    InputStream    is = socket.getInputStream();
 
                     // 步骤2：创建输入流读取器对象 并传入输入流对象
                     // 该对象作用：获取服务器返回的数据
-                    isr = new InputStreamReader(is);
-                    br = new BufferedReader(isr);
-
+                    InputStreamReader    isr = new InputStreamReader(is);
+                        br = new BufferedReader(isr);
                     // 步骤3：通过输入流读取器对象 接收服务器发送过来的数据
                     response = br.readLine();
                     Log.d(TAG, "response:" + response);
@@ -415,6 +394,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onDestroy() {
         super.onDestroy();
+        unBindService();
         disconectSocket();
         Log.d(TAG, "call  onDestroy");
     }

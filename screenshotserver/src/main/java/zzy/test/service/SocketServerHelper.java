@@ -89,7 +89,6 @@ public class SocketServerHelper {
                                             Log.d(TAG, "result" + future2.get());
                                             Log.d(TAG, "call submite execute");
                                             sendMessage(future2.get().toString());
-//                                            return future2.get().toString();
                                         } catch (InterruptedException e) {
                                             e.printStackTrace();
                                         } catch (ExecutionException e) {

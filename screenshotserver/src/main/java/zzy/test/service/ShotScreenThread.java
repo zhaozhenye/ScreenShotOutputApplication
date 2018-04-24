@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
- * $desc$
+ * $截图的子线程$
  *
  * @author zhaozy
  * @date 2018/4/24
@@ -24,8 +24,6 @@ public class ShotScreenThread implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-//            Thread.sleep(4000);
-
         Activity currentActivity = ScreenApplication.getInstance().getCurrentActivity();
         View cv = currentActivity.getWindow().getDecorView();
         List<View> allChildViews = ScreenShotHelper.getAllChildViews(cv);
@@ -42,14 +40,13 @@ public class ShotScreenThread implements Callable<String> {
         screenShotBitmap = ScreenShotHelper.captureScreen(currentActivity);
         if (Environment.getExternalStorageState().
                 equals(Environment.MEDIA_MOUNTED)) {
-            TimeString ts = new TimeString();
+            TimeUtils ts = new TimeUtils();
 
             String timeString = ts.getTimeString() + ".png";
             //新建一个File，传入文件夹目录
             File ImagePathFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "11");
             //判断文件夹是否存在，如果不存在就创建，否则不创建
             if (!ImagePathFile.exists()) {
-                //通过file的mkdirs()方法创建<span style="color:#FF0000;">目录中包含却不存在</span>的文件夹
                 ImagePathFile.mkdirs();
             }
             String filePath = ImagePathFile.getAbsolutePath() + File.separator + timeString;

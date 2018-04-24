@@ -2,7 +2,6 @@ package zzy.test.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
@@ -18,52 +17,41 @@ import java.util.concurrent.TimeUnit;
 
 import mytool.yixin.navinfo.com.screenshotserver.IImagePath;
 
+/**
+ * 后台服务
+ *
+ * @author zhaozy
+ */
 public class ScreenShotService extends Service {
     public static final String TAG = ScreenShotService.class.getSimpleName();
 
-
-    public interface CallBack {
-        String callback();
-    }
-
-    CallBack mCallBack;
-
-    public void setCallBack(CallBack callBack) {
-        this.mCallBack = callBack;
-    }
-
-
+    /**
+     * 线程池
+     */
     private ScheduledExecutorService executorService;
-
-    private static final long initialDelay = 0;
-    private static final long period = 1500;// 500 millseconds
-
+    /**
+     * 延迟处理
+     */
+    private static final long INITIAL_DELAY = 0;
+    /**
+     * 间隔处理
+     */
+    private static final long period = 1500;
+    /**
+     * 阻塞队列
+     */
     private BlockingQueue<ScheduledFuture> blockingQueue;
 
+    /**
+     * 通讯接口
+     */
     private IImagePath.Stub binder = new IImagePath.Stub() {
 
 
         @Override
         public String getImagePath() throws RemoteException {
             Log.d(TAG, "call  getImagePath");
-
-
-//            FutureTask<String> futureTask = new FutureTask<String>(new ShotScreenThread()) {
-//                @Override
-//                protected void done() {
-//                    super.done();
-//                    try {
-//                        Log.d(TAG, "get:" + get());
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    } catch (ExecutionException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            };
-
-
-            ScheduledFuture<String> future = executorService.schedule(new ShotScreenThread(), initialDelay, TimeUnit.MILLISECONDS);
+            ScheduledFuture<String> future = executorService.schedule(new ShotScreenThread(), INITIAL_DELAY, TimeUnit.MILLISECONDS);
             blockingQueue.add(future);
             while (!blockingQueue.isEmpty()) {
                 ScheduledFuture future2 = blockingQueue.poll();
@@ -73,7 +61,7 @@ public class ScreenShotService extends Service {
                     try {
                         Log.d(TAG, "result" + future2.get());
                         Log.d(TAG, "call submite execute");
-                        return  future2.get().toString();
+                        return future2.get().toString();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
@@ -82,14 +70,6 @@ public class ScreenShotService extends Service {
 
                 }
             }
-
-
-//            try {
-//                executorService.scheduleAtFixedRate(futureTask, initialDelay, period, TimeUnit.MILLISECONDS);
-//
-//            } catch (Exception e) {
-//                Log.d(TAG, "exception");
-//            }
             return "";
 
         }
@@ -98,17 +78,6 @@ public class ScreenShotService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-//        if (intent == null) {
-//            return null;
-//        }
-//        String from = intent.getStringExtra("from");
-//        if ("client".equals(from)){
-//            return (IBinder) binder;
-//        }else if("server".equals(from)){
-//            return new SaveImageBinder();
-//        }else {
-//            return null;
-//        }
         return binder;
 
     }
@@ -129,22 +98,6 @@ public class ScreenShotService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-
-
-
-    /**
-     * 内部类继承Binder
-     */
-    public class SaveImageBinder extends Binder {
-        /**
-         * 声明方法返回值是MyService本身
-         *
-         * @return
-         */
-        public ScreenShotService getService() {
-            return ScreenShotService.this;
-        }
-    }
 
     @Override
     public void onDestroy() {

@@ -7,7 +7,7 @@ import android.util.Log;
 
 
 /**
- * $desc$
+ * $Application$
  *
  * @author zhaozy
  * @date 2018/4/20
