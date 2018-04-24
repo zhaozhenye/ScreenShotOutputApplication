@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String response;
 
 
+
     /**
      * 发送消息到服务器 变量
      */
@@ -224,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mBinder = IImagePath.Stub.asInterface(service);
             Log.i(TAG, "bind service success ");
 
-            mHandler.postDelayed(runnable, 100);//延时100毫秒
+            mHandler.postDelayed(runnable, 10);//延时100毫秒
 
 
         }
