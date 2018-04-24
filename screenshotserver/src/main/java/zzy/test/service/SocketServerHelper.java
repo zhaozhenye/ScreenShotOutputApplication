@@ -76,7 +76,7 @@ public class SocketServerHelper {
                             String s = null;
                             StringBuffer sb = new StringBuffer();
                             s = bufferedReader.readLine();
-                            if ("shot".equals(s)) {
+                            if ("ScreenShot".equals(s)) {
                                 //接收到客户端的截屏请求后，执行截屏操作
                                 ScheduledFuture<String> future = executorService.schedule(new ShotScreenThread(), 0, TimeUnit.MILLISECONDS);
                                 blockingQueue.add(future);

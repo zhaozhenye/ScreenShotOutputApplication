@@ -10,12 +10,13 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,14 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * 显示接收服务器消息 按钮
      */
-    private TextView Receive, receiveMessage;
-
+    private TextView Receive;
     /**
-     * 输入需要发送的消息 输入框
-     */
-    private EditText mEdit;
-    /**
-     *  线程池
+     * 线程池
      */
     private ExecutorService mThreadPool;
     private Socket socket;
@@ -103,20 +99,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Handler mHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-
-
             switch (msg.what) {
                 case 0:
                     Bundle bundle = msg.getData();
                     String imagePath = bundle.getString("path");
                     Log.d(TAG, "imagePath:-->" + imagePath);
-                    textPath.setText("图片地址是： " + imagePath);
-
-                    Bitmap bitmap = getDiskBitmap(imagePath);
-                    if (bitmap != null) {
-                        imageView.setImageBitmap(bitmap);
+                    if (TextUtils.isEmpty(imagePath)) {
+                        //停止截图
+                        unBindService();
                     } else {
-                        Log.d(TAG, "bitmap" + bitmap);
+                        textPath.setText("图片地址是： " + imagePath);
+                        Bitmap bitmap = getDiskBitmap(imagePath);
+                        if (bitmap != null) {
+                            imageView.setImageBitmap(bitmap);
+                        } else {
+                            Log.d(TAG, "bitmap" + bitmap);
+                        }
                     }
 
 
@@ -124,14 +122,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case 1:
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     System.out.println("截图图片后的时间是：" + df.format(System.currentTimeMillis()));
+                    textPath.setText("图片地址是： " + response);
 
-                    receiveMessage.setText(("图片地址是： " + response));
-                    Bitmap bitmap2 = getDiskBitmap(response);
-                    if (bitmap2 != null) {
-                        imageView.setImageBitmap(bitmap2);
+                    if (TextUtils.isEmpty(response)) {
+                        //停止截图
+                        disconectSocket();
                     } else {
-                        Log.d(TAG, "bitmap" + bitmap2);
+                        Bitmap bitmap2 = getDiskBitmap(response);
+                        if (bitmap2 != null) {
+                            imageView.setImageBitmap(bitmap2);
+                        } else {
+                            Log.d(TAG, "bitmap" + bitmap2);
+                        }
+
                     }
+                    break;
+                case 3:
+                    Toast.makeText(getApplicationContext(), "请首先建立连接", Toast.LENGTH_SHORT).show();
+                    break;
+                case 4:
+                    Toast.makeText(getApplicationContext(), "请确保开启服务端后，再次尝试连接", Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     break;
@@ -154,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            if (isBind){
+            if (isBind) {
                 //每隔1s循环执行run方法
                 mHandler.postDelayed(this, 10);
             }
@@ -167,10 +177,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void init() {
         btnConnect = (Button) findViewById(R.id.connect);
         btnDisconnect = (Button) findViewById(R.id.disconnect);
-        btnSend = (Button) findViewById(R.id.send);
-        mEdit = (EditText) findViewById(R.id.edit);
-        receiveMessage = (TextView) findViewById(R.id.receive_message);
-        Receive = (Button) findViewById(R.id.Receive);
+        btnSend = (Button) findViewById(R.id.start_screen_shot);
+        Receive = (Button) findViewById(R.id.btn_receive_message);
 
         mThreadPool = Executors.newCachedThreadPool();
 
@@ -229,8 +237,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
 
-
-
     /**
      * 建立连接的子线程
      */
@@ -248,20 +254,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             } catch (IOException e) {
                 e.printStackTrace();
+                mHandler.sendEmptyMessage(4);
             }
 
         }
     };
 
     /**
-     * 发送消息的子线程
+     * 发送消息-开始截图
      */
     Runnable sendMessageThread = new Runnable() {
         @Override
         public void run() {
             //
-            if (socket == null) {
-//                Toast.makeText(getApplicationContext(),"请首先建立连接",Toast.LENGTH_LONG);
+            if (socket == null || (!socket.isConnected())) {
+                mHandler.sendEmptyMessage(3);
                 return;
             }
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -272,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 outputStream = socket.getOutputStream();
 
                 // 步骤2：写入需要发送的数据到输出流对象中
-                outputStream.write(("shot" + "\n").getBytes("utf-8"));
+                outputStream.write(("ScreenShot" + "\n").getBytes("utf-8"));
                 // 特别注意：数据的结尾加上换行符才可让服务器端的readline()停止阻塞
 
                 // 步骤3：发送数据到服务端
@@ -304,12 +311,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 while (socket.isConnected()) {
                     // 步骤1：创建输入流对象InputStream
-                    InputStream    is = socket.getInputStream();
+                    InputStream is = socket.getInputStream();
 
                     // 步骤2：创建输入流读取器对象 并传入输入流对象
                     // 该对象作用：获取服务器返回的数据
-                    InputStreamReader    isr = new InputStreamReader(is);
-                        br = new BufferedReader(isr);
+                    InputStreamReader isr = new InputStreamReader(is);
+                    br = new BufferedReader(isr);
                     // 步骤3：通过输入流读取器对象 接收服务器发送过来的数据
                     response = br.readLine();
                     Log.d(TAG, "response:" + response);
@@ -334,7 +341,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id) {
             //建立连接
             case R.id.connect:
-                // 利用线程池直接开启一个线程 & 执行该线程
                 mThreadPool.execute(connectThread);
 
                 break;
@@ -343,14 +349,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 disconectSocket();
                 break;
             //发送消息给服务器
-            case R.id.send:
-                // 利用线程池直接开启一个线程 & 执行该线程
-//                mHandler.postDelayed(sendMessageThread, 0);//延时100毫秒
+            case R.id.start_screen_shot:
+
                 mThreadPool.execute(sendMessageThread);
                 break;
             //接收消息
-            case R.id.receive_message:
-                // 利用线程池直接开启一个线程 & 执行该线程
+            case R.id.btn_receive_message:
                 mThreadPool.execute(receiveMessageThread);
 
                 break;
