@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         SocketServerHelper.ServerHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                get_text.setText("接收到的数据是："+msg.obj.toString());
+                get_text.setText("接收到的数据是：" + msg.obj.toString());
             }
         };
 
@@ -71,8 +71,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        /**socket服务端开始监听*/
-        server.beginListen();
+
+
+
+
         ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "translationX", 0f, -300f, 300f, -400f, 500f, 0f);
         animator.setDuration(20000);
         animator.start();
@@ -158,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
 
 }

@@ -3,8 +3,11 @@ package zzy.test.service;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by yiyi.qi on 2016/10/31.
@@ -88,6 +91,19 @@ public class ScreenShotHelper {
 //        return screenBitmap;
 //    }
 
+    public static List<View> getAllChildViews(View view) {
+        List<View> allchildren = new ArrayList<View>();
+        if (view instanceof ViewGroup) {
+            ViewGroup vp = (ViewGroup) view;
+            for (int i = 0; i < vp.getChildCount(); i++) {
+                View viewchild = vp.getChildAt(i);
+                allchildren.add(viewchild);
+                //再次 调用本身（递归）
+                allchildren.addAll(getAllChildViews(viewchild));
+            }
+        }
+        return allchildren;
+    }
 
     public static Bitmap getBitmapFromView(View view) {
         view.setDrawingCacheEnabled(true);
