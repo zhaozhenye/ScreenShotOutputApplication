@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
-import android.view.View;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
@@ -20,24 +18,32 @@ import java.util.concurrent.Callable;
  */
 
 
-public class ShotScreenThread implements Callable<String> {
+public class ShotScreenThread implements Callable<Bitmap> {
+
 
     @Override
-    public String call() throws Exception {
+    public Bitmap call() throws Exception {
+        Bitmap bitmap = null;
         Activity currentActivity = ScreenApplication.getInstance().getCurrentActivity();
-        View cv = currentActivity.getWindow().getDecorView();
-        List<View> allChildViews = ScreenShotHelper.getAllChildViews(cv);
-        Bitmap screenShotBitmap = null;
-        for (View view : allChildViews) {
-            if (view.getId() == R.id.image_view) {
-                Log.d("pic", "开始截图");
-//                screenShotBitmap = ScreenShotHelper.getBitmapFromView(view);
-                Log.d("pic", "截图完成" + screenShotBitmap);
-            }
-        }
+        long beforeTime = System.currentTimeMillis();
+        Bitmap screenShotBitmap = ScreenShotHelper.captureScreen(currentActivity);
+        long screenEnd = System.currentTimeMillis();
+        System.out.println("screen shot all time is:" + (screenEnd - beforeTime));
+        bitmap = Utils.compressRGB565(screenShotBitmap);
+        System.out.println("screen shot bitmap compress all time is:" + (System.currentTimeMillis() - screenEnd));
 
 
-        screenShotBitmap = ScreenShotHelper.captureScreen(currentActivity);
+        System.out.println("screen shot bitmap size is：" + Utils.getNetFileSizeDescription(bitmap.getByteCount()));
+
+
+        return bitmap;
+
+
+//        saveImageToLocal(screenShotBitmap);
+
+    }
+
+    private String saveImageToLocal(Bitmap screenShotBitmap) {
         if (Environment.getExternalStorageState().
                 equals(Environment.MEDIA_MOUNTED)) {
             TimeUtils ts = new TimeUtils();
@@ -67,5 +73,6 @@ public class ShotScreenThread implements Callable<String> {
             }
         }
         return "shot mock";
+
     }
 }

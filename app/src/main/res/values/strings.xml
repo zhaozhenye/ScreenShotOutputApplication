@@ -1,3 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ScreenShotOutputApplication</string>
+
+    <!-- app_name修改涉及搜索模块，如果修改需要联系搜索服务器修改产品标识。标识格式为"Android_导航犬"-->
+    <!--<string name="app_name">导航犬</string>-->
+    <string name="search">搜索</string>
+    <string name="guide_start">开始导航</string>
+    <string name="guide_fast">创建桌面一键导航</string>
+    <string name="delete_all">是否确认删除全部记录？</string>
+    <string name="mapbar_prompt">提示</string>
+    <string name="button_text_ok">确 定</string>
+    <string name="button_text_end_navi">结束导航</string>
+    <string name="button_text_exit">退出软件</string>
+    <string name="button_text_cancel">取消</string>
+    <string name="without_info">暂无信息</string>
+    <string name="app_name_go_navi">&#160;一键导航</string>
+    <string name="app_downing">正在下载</string>
+    <string name="app_down_done">下载完成</string>
+    <string name="app_down_paused">已暂停</string>
+    <string name="app_downing2">下载中</string>
+    <string name="app_down_waiting">等待中</string>
+    <string name="app_down_failed">下载失败</string>
+    <string name="app_down_retry">待重试</string>
+    <string name="app_down">下载</string>
+    <string name="app_name">ScreenShotClient</string>
+
+    <!-- nearby -->
+    <string name="all_city">全部地区</string>
+    <string name="current_city">当前定位城市</string>
+
+    <!-- 电子眼模块 start -->
+    <string name="electronic_eye_icon">电子眼</string>
+    <!-- 电子眼模块 end -->
+
+    <!-- 历史字符串 -->
+    <string name="option_destination_history">历史目的地</string>
+    <string name="option_advice_feedback">意见反馈</string>
+    <string name="option_version_info">版本信息</string>
+    <string name="connect_service_fail">数据连接中断，请检查您的网络设置！</string>
+    <string name="option_disclaimer">服务条款</string>
+    <string name="option_night_mode">昼夜模式</string>
+    <string name="option_soft_version">软件版本</string>
+    <string name="option_engine_version">引擎版本</string>
+    <string name="option_data_version">数据版本</string>
+    <string name="option_plan_approval_no">审图号</string>
+    <string name="option_publish_no">出版号</string>
+    <string name="option_software_vendor">软件供应商</string>
+    <string name="option_data_provider">数据供应商</string>
+    <string name="option_real_time_traffic_supplier">实时路况供应商</string>
+    <string name="option_official_bbs">产品论坛</string>
+    <string name="option_hot_line">客服电话</string>
+    <string name="option_e_mail">客服邮箱</string>
+    <string name="option_weibo">官方微博</string>
+    <string name="option_wechat">官方微信</string>
+    <string name="option_official_web">产品官网</string>
+    <string name="option_hot_qq">客服QQ群</string>
+    <string name="devices_no_gps">设备不支持GPS</string>
+
+    <!-- 导航标题栏中使用的字符串-->
+    <string name="gps_locationing">GPS导航定位中</string>
+    <string name="ongps_locationing">未开启GPS</string>
+
+    <!-- 界面中使用的字符串 -->
+    <string name="peccancy">违章</string>
+    <string name="message">消息</string>
+    <string name="score">积分</string>
+    <string name="about">关于</string>
+    <string name="wechat">微信互联</string>
+    <string name="my_store">精选车品</string>
+    <string name="login">登录</string>
+    <string name="regiest">注册</string>
+    <string name="read_and_agree">"我已阅读并同意%s服务条款"</string>
+    <!-- toast中使用的字符串 -->
+    <string name="user_input_phone_or_email_error">账号格式有误，请重新输入</string>
+    <string name="net_error">网络错误，请重试</string>
+    <string name="captcha_error">验证码错误!</string>
+    <string name="login_ok">登录成功</string>
+    <string name="user_token_error">当前登录信息已过期，需要重新登录</string>
+
+    <string name="set_navi_play">导航语音播报</string>
+    <string name="welcome_voice">欢迎语音</string>
+    <string name="set_ccar_mode">车机模式</string>
+    <string name="set_silent_small_title">Wi-Fi环境下，自动下载或更新基础数据，电子眼及当前省市数据</string>
+    <string name="set_online_prior">在线算路优先</string>
+    <string name="set_navi_play_mode">导航播报模式</string>
+    <string name="set_change_night">昼夜模式</string>
+    <string name="set_change_car_icon">更换车标</string>
+    <string name="set_screen_on">屏幕常亮</string>
+    <string name="set_small_navi_map">导航显示小地图</string>
+    <string name="set_real3d_navi_map">导航显示三维实景</string>
+    <string name="set_auto_navi_map">导航地图自动缩放</string>
+    <string name="set_rotate_map">双指旋转地图</string>
+    <string name="set_map_show_obd">在主页显示汽车卫士</string>
+    <string name="set_receive_push">接收推送</string>
+    <string name="set_navi_avoid">避让拥堵</string>
+    <string name="set_navi_hud">HUD</string>
+    <string name="option_sofware_updata">软件更新</string>
+    <string name="option_about_Clause">服务条款</string>
+    <string name="set_save_directory">数据存储目录</string>
+    <string name="set_silent_download">Wi-Fi下自动下载离线数据</string>
+    <!-- 用户中心模块 over -->
+    <string name="user_login_error">账号或密码错误，请重新输入</string>
+    <string name="user_sms_phone_error">手机号码格式不正确</string>
+    <string name="user_sms_email_error">邮箱格式不正确</string>
+    <string name="user_sms_captcha_error">短信验证码错误</string>
+    <string name="user_sms_expired_error">验证码已过期，请重新获取</string>
+    <string name="user_sms_captcha_ok">短信验证码已发送</string>
+    <string name="user_sms_captcha_format_error">输入的手机号不存在</string>
+    <string name="user_sms_email_ok">验证码已发送到您的邮箱</string>
+    <string name="user_sms_email_format_error">该邮箱不存在，请重新输入</string>
+    <string name="user_sms_phone_format_error">该手机号不存在，请重新输入</string>
+    <string name="user_password_find_success">密码重置成功</string>
+    <string name="user_bind_success">绑定成功</string>
+    <string name="user_bind_email_exit">该邮箱已绑定其它账号</string>
+    <string name="user_bind_phone_exit">该手机号已绑定其它账号</string>
+    <string name="user_update_password_success">修改密码成功</string>
+    <string name="user_register_phone_exist">该手机已被注册，请直接登录</string>
+    <string name="user_register_success">恭喜您注册成功</string>
+    <string name="user_password_too_short">密码长度不足6位</string>
+    <string name="user_register_too_long">密码长度不能超过20位</string>
+    <string name="user_password_is_invalid">密码6-20位</string>
+    <string name="user_terms_is_invalid">需要同意服务条款才可以注册</string>
+    <string name="user_current_password_error">当前密码错误</string>
+    <string name="user_dialog_cancel">取消</string>
+    <string name="user_dialog_logout">退出</string>
+    <string name="user_dialog_unbind_weixin">解绑</string>
+    <string name="user_unbind">未绑定</string>
+
+    <!-- 登录模块  -->
+
+    <!-- 积分-->
+    <string name="go_to_cash">去兑换</string>
+
+    <!-- 分享 -->
+    <!-- 请神 -->
+
+    <!-- 常用地址 -->
+    <string name="often_address_setup_success_tips">常用地址添加成功，如需修改请到更多常用数据中编辑</string>
+    <string name="option_setting_home_address">点击设置家的位置</string>
+    <string name="option_setting_company_address">点击设置公司的位置</string>
+    <string name="option_no_favorite_data">暂无收藏记录</string>
+    <string name="option_no_favorite_data_land">您还未收藏过任何信息</string>
+    <string name="option_item_function_cancel">取消</string>
+
+    <!-- 位置 -->
+
+    <!-- 功能dialog -->
+
+    <!-- 位置照片 -->
+
+    <!-- 软件首页功能菜单 -->
+
+    <!-- 模拟导航功能菜单 -->
+
+    <!-- POI详情功能菜单 -->
+    <string name="close">关    闭</string>
+    <!-- 搜索相关 -->
+    <string name="go_to_city">已切换到%s</string>
+    <string name="do_you_find">您是不是要找：</string>
+    <!--当前城市没有poi-->
+    <string name="city_distribution">您是否想在下列城市中查找结果:</string>
+    <string name="do_you_delete_history">是否确认删除该记录？</string>
+    <string name="search_parking_port_entrance">入</string>
+    <string name="search_parking_port_exit">出</string>
+    <string name="search_parking_port_entrance_exit">入/出</string>
+    <string name="look_search_list">点击查看搜索列表</string>
+    <!-- 智能语音 -->
+    <string name="voice_viewer">语音界面</string>
+
+    <!-- 数据管理 -->
+
+    <!-- city -->
+
+    <!-- 服务相关 -->
+    <!-- 路线相关 开始 -->
+    <string name="route_plan">路线规划</string>
+    <string name="my_location">我的位置</string>
+    <string name="wait_start_poi">请输入起点</string>
+    <string name="wait_end_poi">请输入终点</string>
+    <string name="wait_via_poi">请输入途经点</string>
+    <string name="wait_home_poi">请输入家的名称或地址</string>
+    <string name="wait_company_poi">请输入公司的名称或地址</string>
+    <string name="more">更多</string>
+    <string name="cancel">取 消</string>
+    <string name="checkbox_avoid_fee">少收费</string>
+    <string name="confim_value">确 认</string>
+    <string name="error_pio_start">请检查起点！</string>
+    <string name="error_pio_end">请检查终点！</string>
+    <string name="error_pio_start_and_end">请检查起点和终点！</string>
+    <string name="error_pio_midway">请检查途经点！</string>
+    <string name="error_pio_end_midway">请检查终点和途径点！</string>
+    <string name="error_pio_start_midway">请检查起点和途径点！</string>
+    <string name="error_pio_unknows">输入出错请检查！</string>
+    <string name="please_wait">努力加载中…</string>
+    <string name="route_avoid_congestion">避让拥堵</string>
+    <string name="route_plan_navi">驾车</string>
+    <string name="route_plan_bus">公交</string>
+    <string name="route_plan_walk">步行</string>
+    <!-- 路线相关 结束 -->
+    <!-- 星图  temp -->
+    <string name="gps_low">GPS信号弱，位置刷新可能不及时。</string>
+    <string name="navi_speek_state">播报模式</string>
+    <string name="map_center_point">地图中心点</string>
+    <string name="inverse_geocode_loading">正在获取地址详情...</string>
+    <string name="voice_confirm_label">确定</string>
+    <string name="search_gps">定位中...</string>
+
+    <!-- yunzj2012-11-27 alignZoomViewAbove huafubao -->
+    <string name="Ensure">"确定"</string>
+    <string name="Cancel">"取消"</string>
+
+    <!-- 友盟 -->
+    <string name="umeng_example_home_btn_analytics">统计分析</string>
+    <string name="umeng_example_home_btn_xp">应用联盟</string>
+    <string name="umeng_example_home_btn_ad">移动广告</string>
+    <string name="umeng_example_home_btn_tools">工具</string>
+    <string name="umeng_example_home_btn_fb">用户反馈</string>
+    <string name="umeng_example_home_btn_update">自动更新</string>
+    <string name="umeng_example_home_btn_plus">社交分享</string>
+    <string name="umeng_example_home_btn_xp_ufp">Umeng For Publisher</string>
+    <string name="umeng_example_xp_home_btn_container">嵌入容器</string>
+    <string name="umeng_example_xp_home_btn_banner">横幅</string>
+    <string name="umeng_example_xp_home_btn_banner_ufp">"横幅\n(UFP)"</string>
+    <string name="umeng_example_xp_home_btn_handler">小把手</string>
+    <string name="umeng_example_xp_home_btn_handler_ufp">"小把手\n(UFP)"</string>
+    <string name="umeng_example_xp_home_btn_tab">多页面</string>
+    <string name="umeng_example_xp_home_btn_custom">自定义样式</string>
+    <string name="umeng_example_xp_home_btn_wap">Web页</string>
+    <string name="umeng_example_xp_home_btn_wap_ufp">"Web页\n(UFP)"</string>
+    <string name="umeng_example_xp_home_btn_textlink">文字链</string>
+    <string name="umeng_example_xp_home_btn_container_header">轮播大图\n(UFP)</string>
+    <string name="umeng_example_xp_home_btn_push_header">推送弹窗\n(UFP)</string>
+    <string name="umeng_example_xp_home_handler_icons">图标列表\n(UFP)</string>
+    <string name="umeng_example_fb_home_btn_simple">简单反馈</string>
+    <string name="umeng_example_home_hint_wait">敬请期待</string>
+    <string name="add_favorites_text">收藏</string>
+    <string name="avoid_high_speed">避让高速</string>
+    <string name="avoid_ferry">避让轮渡</string>
+    <string name="high_speed_first">高速优先</string>
+    <string name="short_way">最短路线</string>
+    <string name="toast_navi_shortcut">已经添加桌面快捷方式</string>
+    <string name="navi_shortcut_fail">添加失败</string>
+    <string name="umeng_fb_back">返回</string>
+    <string name="umeng_fb_contact_info">联系方式</string>
+    <string name="umeng_fb_contact_info_hint">QQ, 电话等我们能联系您的联系方式</string>
+    <string name="umeng_fb_contact_title">填写联系信息</string>
+    <string name="umeng_fb_contact_update_at">更新于 </string>
+    <string name="umeng_fb_notification_content_formatter_multiple_msg">收到来自开发者的 %d 条回复。</string>
+    <string name="umeng_fb_notification_content_formatter_single_msg">新回复: %s</string>
+    <string name="umeng_fb_notification_ticker_text">有新的回复</string>
+    <string name="umeng_fb_reply_content_default">你好， 我是产品经理，欢迎您反馈使用产品的感受和建议</string>
+    <string name="umeng_fb_reply_content_hint">我想说</string>
+    <string name="umeng_fb_reply_date_default">2013年3月12日 13:24:00</string>
+    <string name="umeng_fb_send">发送</string>
+    <string name="umeng_fb_title">意见反馈</string>
+    <string name="umeng_fb_powered_by">Powered by</string>
+    <!-- 数据包月 -->
+
+    <!-- 车主服务 -->
+
+    <!-- 云收藏 -->
+
+    <!-- UI8 start -->
+    <!-- 控件 底部菜单 -->
+    <string name="ui8_wg_bottombar_search">搜索</string>
+    <string name="ui8_wg_bottombar_simulation">模拟导航</string>
+    <string name="ui8_wg_bottombar_setting">设置</string>
+
+    <!-- 九宫格工具菜单 -->
+
+    <!-- netsetting -->
+    <string name="mapbar_alert_location_nonet">请检查网络连接</string>
+    <string name="network_failed">网络连接失败，请检查网络是否畅通。</string>
+    <string name="net_alert_open">网络连接失败，请设置网络。</string>
+
+    <!-- 城市列表 -->
+
+    <!-- 对话框 -->
+    <!-- poi详情 -->
+    <string name="map_locating">加载中...</string>
+
+    <!-- 常用数据 -->
+    <string name="ui8_optiondata_dialog_title">编辑</string>
+    <string name="ui8_feedback_bottombar_text">提交</string>
+    <string name="ui8_loaction_encode">定位编码</string>
+    <!-- UI8 end -->
+    <!-- 过滤除数字和字母以外的字符 -->
+    <string name="icon"/>
+
+    <!-- TitleViewer标题栏 -->
+    <string name="title_hint_search">搜索</string>
+
+    <!-- 首页工具箱 -->
+    <string name="collection">收藏点</string>
+    <string name="layers_map">2D平面图</string>
+    <string name="layers_srn">3D俯视图</string>
+    <string name="layers_satellite">卫星图</string>
+
+    <!-- 搜索 相关 -->
+    <!--"设为终点" , "设为途经点" , "设为起点" , "查周边" , "打电话" , "周边酒店" , "报错" , "收藏" , "分享"-->
+    <string name="map">地图</string>
+    <string name="search_city_hint">请输入城市名称或首字母</string>
+    <string name="search_center_hint">请输入搜索的地点</string>
+    <string name="search_nearby_hint">在%s附近搜索</string>
+    <string name="share">分享</string>
+    <string name="setting">设置</string>
+    <string name="search_pull_up">上滑加载第%d页</string>
+    <!-- 详情页-->
+    <string name="search_detail_favorite">收藏</string>
+    <string name="search_nearby">查周边</string>
+    <string name="search_shortcut">添加桌面快捷方式</string>
+    <string name="search_see_map">看地图</string>
+    <string name="to_here">到这去</string>
+    <string name="report_error">报错</string>
+    <string name="detail_nomore_info">该点没有更多信息了!</string>
+
+
+    <!-- service -->
+    <string name="service_help_hours">24小时全国道路救援服务</string>
+    <string name="service_conn">接电服务</string>
+    <string name="service_water">紧急加水</string>
+    <string name="service_change">更换轮胎</string>
+    <string name="service_fix">现场抢修</string>
+    <string name="service_oil">紧急加油</string>
+    <string name="service_trailer">拖车牵引</string>
+    <string name="service_help">困境救援</string>
+    <string name="service_empty"> </string>
+
+    <!-- 车辆违章 -->
+    <string name="violation_car_licence_num">车牌号码</string>
+    <string name="violation_engine_num">发动机号</string>
+    <string name="violation_frame_num">车架号码</string>
+    <string name="violation_input_car_licence_num">请输入车牌号</string>
+    <string name="violation_input_all_engine_num">请输入完整的发动机号</string>
+    <string name="violation_input_all_frame_num">请输入完整的车架号码</string>
+    <string name="violation_select">保存并查询</string>
+    <string name="violation_edit_car">编辑车辆</string>
+    <string name="violation_car_info_error">车辆信息有误，\n请点击“编辑”修改车辆信息。</string>
+    <string name="violation_car_info_partial">车辆信息不全，\n请点击“编辑”修改车辆信息。</string>
+    <string name="violation_car_no_violation">恭喜您没有违章，\n请保持良好的驾驶习惯！</string>
+    <string name="violation_car_is_too_more">添加失败，最多只能添加%d辆</string>
+    <string name="violation_can_not_delete">删除失败，请检查车辆信息后重试</string>
+    <string name="violation_refresh">刷新</string>
+    <string name="violation_car_type_tip">提示：目前仅支持小型汽车车牌查询</string>
+    <string name="violation_can_not_edit_car_licence_num">如需更换车牌号码，请删除车辆后重新添加</string>
+    <string name="violation_car_info">详情</string>
+    <string name="violation_add_car">添加车辆</string>
+    <string name="violation_delete_car_network_failed">删除成功，网络中断，账号同步失败</string>
+    <string name="violation_choose_sync_car">请选择要与账号同步的车辆，最多可选择%d辆。</string>
+    <string name="violation_choose_at_least_one">请至少选择一辆车</string>
+    <string name="violation_choose_at_most">最多只能选择%d辆车</string>
+    <string name="violation_choose_car_synced">已将所选车辆同步到账号</string>
+    <string name="violation_choose_car">选择车辆</string>
+    <string name="violation_tips">提示</string>
+    <string name="violation_no_more_need">确认不再查询该车辆的违章信息</string>
+    <string name="delete">删除</string>
+
+    <!-- 气泡面板 -->
+
+    <!-- setting -->
+    <string name="user_setting_night_mode_auto">自动</string>
+    <string name="user_navi_play_mode_left_text">简单</string>
+    <string name="user_navi_play_mode_middle_text">标准</string>
+    <string name="user_navi_play_mode_right_text">详细</string>
+
+    <!-- 设置-->
+    <string name="setting_dig_arrow">箭头</string>
+    <string name="setting_dig_holiday">节日车标</string>
+    <string name="setting_dig_3d">3D</string>
+    <string name="navi_setting_eye">导航视角</string>
+    <string name="user_setting_system">系统</string>
+    <string name="user_setting_navi">导航</string>
+    <string name="user_setting_other">其他</string>
+    <string name="navi_setting_along_search">沿路搜索</string>
+    <string name="walk_navi_setting_eye">3D视图</string>
+    <string name="walk_navi_setting_report">步行播报</string>
+
+
+    <!-- 导航底部栏 -->
+
+    <!-- 我的位置详情页 -->
+    <string name="location_courier_detail_nearby">查周边</string>
+    <string name="location_courier_path_planning">路线规划</string>
+    <string name="location_courier_detail_hotel">周边酒店</string>
+    <string name="location_courier_desktop_shortcut">添加桌面快捷方式</string>
+    <string name="location_courier_collect">收藏</string>
+    <string name="location_courier_share">分享</string>
+    <string name="location_courier_error">报错</string>
+    <string name="location_courier_location">我的位置</string>
+    <string name="location_courier_detail">详情</string>
+    <string name="location_courier_no_address">暂无地址</string>
+    <!-- 我的收藏 -->
+    <string name="favorite_address_home">家</string>
+    <string name="favorite_address_company">公司</string>
+    <string name="favorite_edit">编辑</string>
+    <string name="favorite_delete">删除</string>
+    <string name="favorite_title_mid">收藏夹</string>
+    <string name="custom_data_path_dialog_hint_text">路径格式:/storage/sdcard1</string>
+    <string name="favorite_title_right">同步</string>
+    <string name="favorite_dialog_single_title">提示</string>
+    <string name="favorite_dialog_cancel">取消</string>
+    <string name="favorite_dialog_confirm">确认</string>
+    <string name="favorite_synchronize_text">正在同步...</string>
+    <string name="favorite_dialog_repeat_home">已设置为“家”, 不可重复设置!</string>
+    <string name="favorite_dialog_repeat_company">已设置为“公司”,不可重复设置!</string>
+    <string name="favorite_bottom_all_check">全选</string>
+    <string name="favorite_bottom_all_uncheck">取消全选</string>
+    <string name="favorite_dialog_delete">删除</string>
+    <string name="fav_sync_text_frist">我们现在只支持收藏</string>
+    <string name="fav_sync_text_second">条数据，请删除部分数据后再同步。</string>
+    <string name="fav_no_result">暂无地址信息</string>
+    <string name="fav_big_line">粗线</string>
+    <string name="fav_delete_one_title">是否删除此收藏点</string>
+    <string name="fav_delete_some_title">是否删除选中的收藏点</string>
+    <string name="fav_sync_login_toast">登录后才可同步</string>
+    <string name="fav_sync_neterror_toast">同步失败，请检查网络连接。</string>
+    <string name="fav_sync_success">收藏夹同步成功</string>
+    <!-- 路线相关 -->
+    <string name="section_browse_title">分段浏览</string>
+    <string name="route_plan_avoid">偏好</string>
+    <string name="route_plan_avoid_setting">偏好设置</string>
+    <string name="simulation">模拟</string>
+    <string name="input_origin_poi">输入起点</string>
+    <string name="input_dest_poi">输入终点</string>
+    <string name="input_vias_poi">添加途经点</string>
+    <string name="human_navi">人工导航</string>
+    <string name="navi_close">关闭</string>
+
+    <!-- Datastore -->
+    <string name="datastore_activation_code">激活码</string>
+    <string name="datastore_active">激活</string>
+    <string name="datastore_hint">请输入激活码</string>
+    <string name="datastore_code_info">注意：手机端购买VIP数据，购买成功后自动激活，无需通过激活码激活。</string>
+    <string name="datastore_code_info_q1">什么是激活码？</string>
+    <string name="datastore_code_info_q2">如何获取激活码？</string>
+    <string name="datastore_code_info_a1">激活码是图吧付费数据对于您设备的授权号码。激活成功后，被授权的数据会自动变为可下载状态。</string>
+    <string name="datastore_code_info_a21">1.目前可以通过参加图吧网站推广活动、图吧新浪微博活动等方式获取到激活码；</string>
+    <string name="datastore_code_info_a22">2.通过软件内置购买方式购买数据后，会自动激活，不需要获取和输入激活码，请注意，不要重复购买。</string>
+    <string name="datastore_code_info_remark">激活问题请尝试以下方式解决</string>
+    <string name="datastore_check">数据监测</string>
+    <string name="datastore_check_info">尊敬的用户您好，如果您购买了VIP版数据无法激活，可以尝试以下方式解决。</string>
+    <string name="datastore_check_1">检查数据授权</string>
+    <string name="datastore_check_2">查看设备串号</string>
+    <string name="datastore_check_3">打电话给客服</string>
+    <string name="datastore_nowifi">当前为2G/3G/4G网络下载数据，建议切换Wi-Fi网络下载</string>
+    <string name="datastore_tips_delete_base">删除基础地图数据后，将无法使用离线导航及离线浏览地图功能，确认删除吗？</string>
+    <string name="datastore_tips_delete_eye">删除电子眼数据，导航时将无电子眼播报，确认删除吗？</string>
+    <string name="datastore_tips_delete_data">删除离线数据，将无法使用%s离线导航、离线搜索、离线浏览地图，确认删除吗？</string>
+    <string name="datastore_tips_delete_apply">数据安装过程中无法删除。</string>
+    <string name="datastore_tips_delete_base_not">分省及电子眼数据都删除后才能删除。</string>
+    <string name="datastore_tips_delete_eye_not">分省数据删除后才能删除。</string>
+    <string name="datastore_tips_delete_title">删除数据</string>
+    <string name="datastore_result_title">激活功能</string>
+    <string name="datastore_result_title_ok">恭喜您，激活成功！</string>
+    <string name="datastore_result_title_none">对不起，激活失败！</string>
+    <string name="datastore_result_msg_ok">您已获得%s的下载权限。</string>
+    <string name="datastore_result_msg_used">该激活码已经使用过，请您购买新的激活码</string>
+    <string name="datastore_result_msg_invalidate">激活电子眼之前，请您先购买分省数据。</string>
+    <string name="datastore_result_msg_outdate">该激活码已过期，请您使用新的激活码 。</string>
+    <string name="datastore_result_msg_notmatchv">该激活码不支持此版本，请您升级软件为最新版本。</string>
+    <string name="datastore_result_msg_notmatchu">此类活动激活码不支持已授权用户！</string>
+    <string name="datastore_result_msg_error">请您检查后重新输入。</string>
+    <string name="datastore_result_btn">立即下载</string>
+    <string name="datastore_result_info1">PC下载数据</string>
+    <string name="datastore_result_info2">通过电脑访问图吧无线站点，选择需要下载的数据包，并手动拷贝到手机中的指定目录下（详见网站说明）。\n下载地址 http://mobile.mapbar.com</string>
+    <string name="datastore_nonet">目前网络不通，请检查网络后重试</string>
+    <string name="datastore_nospace">您的存储空间不足</string>
+    <string name="datastore_base_restart">数据下载完成，重启软件使用新数据。</string>
+    <string name="datastore_base_restart_title">重启软件</string>
+    <string name="datastore_warning">"有新下载数据，重启后生效"</string>
+    <string name="datastore_nobasic_noeyes">"基础数据和电子眼下载完成，才能正常使用离线导航功能"</string>
+    <string name="datastore_nobasic">"基础数据下载完成，才能正常使用离线导航功能"</string>
+    <string name="datastore_noeyes">"电子眼下载完成，才能正常使用离线导航播报"</string>
+
+
+
+    <string name="datastore_download_list_tip">您还没有下载数据，\n请到城市列表界面选择数据进行下载</string>
+    <string name="datastore_city_list_tip">使用离线导航功能，需下载基础数据及省市数据</string>
+
+
+    <string name="routing">努力加载中...</string>
+
+    <!-- Wifi与Gps Dialog -->
+    <string name="navi_check_dialog_message">下次不再提示</string>
+    <string name="user_copyright">版本信息</string>
+
+    <string name="clear_history">清除历史记录</string>
+    <string name="search_kcode">定位编码</string>
+    <!-- 支付 -->
+
+    <string name="imput_kcode">请输入要查询的定位编码</string>
+    <string name="share_kecode_tips">*小提示</string>
+    <string name="share_kecode_context">朋友可以通过图标看到你分享的位置</string>
+    <!-- 数据存储目录 -->
+    <string name="data_storage_list_card_one">内置卡</string>
+    <string name="data_storage_list_card_two">外置卡</string>
+    <string name="data_storage_list_custom">自定义</string>
+    <string name="data_storage_card_list_title">数据存储目录</string>
+    <string name="data_storage_card_list_toast">您的手机目前只有一个默认存储卡，不能更改数据存放路径。</string>
+    <string name="not_available_to_change">数据正在下载，请稍后更改存储目录</string>
+    <string name="check_custom_data_path">您输入的路径不存在，请确认后重新输入.</string>
+    <string name="last_choosed_storage_not_valid">存储路径异常，已为您切换到可用路径</string>
+
+
+    <!-- RoutePlanViewer -->
+    <string name="route_plan_viewer_all_road">全程 </string>
+    <string name="anji_phone">02161363399</string>
+    <string name="wing_phone">4008005009</string>
+    <string name="continue_navi">是否继续上次导航?</string>
+    <string name="go_on_navi">继续导航</string>
+    <!-- ElectronTitleViewer -->
+    <string name="electron_gps_not_open_str">未开启GPS</string>
+    <string name="electron_gps_not_location_str">卫星定位中...</string>
+    <string name="electron_eye_not_location_str">电子眼探测中...</string>
+    <string name="electron_eye_not_location_hit">...</string>
+    <string name="electron_eye_center_middle_continue">继续探测</string>
+    <string name="electron_eye_center_middle_text">电子眼</string>
+    <string name="electron_eye_center_download_hint1">需要下载电子眼数据，才能使用电子眼</string>
+    <!-- ElectronListViewer -->
+    <string name="electron_list_title_middle_str">自定义电子眼列表</string>
+    <string name="electron_list_title_add">添加</string>
+    <!-- ElectronCenterViewer -->
+    <string name="electron_center_confirm">去下载</string>
+    <string name="electron_center_cancel">取消</string>
+    <!-- illegalInfo -->
+    <string name="illegal_info">违章限行</string>
+    <string name="illegal_alert_map_is_too_small">地图过小，请放大查看</string>
+    <string name="illegal_no_data_in_current_area">当前范围没有数据，请挪动地图查看</string>
+    <string name="illegal_share_title">路过这里，当心别违章了</string>
+    <!-- ElectronListViewer -->
+    <string name="electron_look">看地图</string>
+    <string name="electron_list_delete_delete">删除</string>
+    <string name="electron_list_delete_hint">删除电子眼</string>
+    <string name="electron_list_edit_title">电子眼编辑</string>
+    <string name="electron_list_edit_name">名称:</string>
+    <string name="electron_list_edit_name_hint">自定义电子眼</string>
+    <string name="electron_list_edit_monitor">电子眼监控</string>
+    <string name="electron_list_edit_traffic">红绿灯照相</string>
+    <string name="electron_list_edit_camera">限速摄像头</string>
+    <string name="electron_list_edit_default_speed">60</string>
+
+    <!-- ElectronAddViewer -->
+    <string name="electron_add_text">添加电子眼</string>
+    <string name="electron_add_success_text">电子眼保存成功</string>
+    <string name="electron_add_success_btn">知道了</string>
+
+    <!-- ElectronLookViewer -->
+    <string name="electron_look_text">查看电子眼</string>
+    <!-- ElectronSettingViewer -->
+    <string name="electron_setting_title_text">电子眼设置</string>
+    <string name="electron_setting_play_text">播报内容</string>
+    <string name="electron_setting_exit">关闭</string>
+    <string name="electron_setting_auto_switch">自动启用电子眼</string>
+    <string name="electron_setting_road_play">电子眼播报</string>
+    <string name="electron_setting_speed_limit">限速电子眼</string>
+    <string name="electron_setting_light_photo">红绿灯照相</string>
+    <string name="electron_setting_electron_monitor">电子监控</string>
+    <string name="electron_setting_other_broad">其他警示播报</string>
+    <!-- 积分兑换 -->
+    <string name="integral_obtaining">正在领取中, 请稍后...</string>
+    <string name="integral_obtain_failed">领取失败</string>
+    <string name="integral_has_obtained">积分已经领取过了</string>
+    <string name="electron_list_empty_hit">您还没有添加自定义电子眼</string>
+    <string name="electron_list_empty_button">立即添加</string>
+    <string name="all_score">总积分</string>
+    <string name="score_explain">积分说明</string>
+    <string name="navi_every_km">每导航1公里</string>
+    <string name="no_one_km">不足1公里不计算，如3.5公里，积3分</string>
+    <string name="navi_score">导航积分</string>
+    <string name="clear_score">清除不可领取的积分</string>
+    <string name="get">确定</string>
+    <string name="know">知道了</string>
+    <!-- 星图模块 start -->
+    <string name="starmap_title_gps_connection">GPS连接中</string>
+    <string name="starmap_title_gps_success">GPS已连接</string>
+    <string name="starmap_title_gps_click_open">GPS未开启</string>
+    <string name="starmap_icon">星图</string>
+    <string name="starmap_gps_time">GPS时间：</string>
+    <string name="starmap_gps_time_land">GPS时间：</string>
+    <string name="starmap_gps_kcode">定位编码：</string>
+    <string name="starmap_gps_kcode_land">定位编码</string>
+    <string name="starmap_accuracy_title">精度 m</string>
+    <string name="starmap_altitude_title">海拔 m</string>
+    <string name="starmap_bottom_title">GPS小知识:</string>
+    <string name="starmap_description_one">1.卫星定位需要有GPS模块。</string>
+    <string name="starmap_description_two">2.卫星定位需要在看得到蓝天的情况下使用。</string>
+    <string name="starmap_description_three">3.车窗玻璃的位置比座椅上的GPS信号更好。</string>
+    <string name="starmap_description_four">4.后台卫星定位导航会带来较快的电池消耗，别忘了及时关闭哦~</string>
+    <string name="starmap_open_dialog_msg">GPS未开启，无法定位，请在设置中打开GPS。</string>
+    <!-- 星图模块 end -->
+
+    <!--人工导航 start -->
+    <string name="ecar_net_error">网络暂时无法连接，请稍候再试</string>
+    <!--人工导航 end -->
+
+    <!-- ▼ 路况订阅相关变量 ▼ -->
+    <string name="add_tmc_error_same_poi">输入出错请检查!</string>
+    <string name="distance_too_long">距离过远，无法订阅路况!</string>
+    <string name="generate_default_tmc_rss">正在生成，请等待…</string>
+    <string name="msg_id_delete">正在删除，请等待…</string>
+    <string name="msg_id_update">正在更新，请等待…</string>
+    <string name="tmc_syning">正在同步…</string>
+    <string name="tmc_adding">正在添加请稍后…</string>
+    <string name="tmc_rss">路况订阅</string>
+    <string name="tmc_rss_tips">提示</string>
+    <string name="tmc_rss_item_edit">编辑</string>
+    <string name="tmc_rss_item_delete">删除</string>
+    <string name="alart_time_info">提醒时间: %1$s:%2$s %3$s</string>
+    <string name="od_concept">%1$s-%2$s</string>
+    <string name="tmc_rss_remind">路况提醒</string>
+    <string name="tmc_rss_donot_show">不再提示</string>
+    <string name="tmc_cancle">取消</string>
+    <string name="tmc_rss_generate">生成</string>
+    <string name="add_tmc_rss">添加</string>
+    <string name="pathway_info">途经:%s</string>
+    <string name="network_error">网络异常</string>
+    <string name="plan_failed">路线计算失败，请检查网络后再试</string>
+    <string name="args_failed">参数错误</string>
+    <string name="cant_find_specified_item">未找到指定条目</string>
+    <string name="wait_planing">路线规划中，请稍后</string>
+    <string name="tmc_rss_open_app_noti_content">开启接受推送，否则将不能接收到路况提醒.</string>
+    <string name="tmc_rss_generate_default">您已设置家和公司，是否自动生成路况订阅？</string>
+    <!-- ▲ 路况订阅相关变量 ▲ -->
+
+    <string name="tmc_add_title">路况提醒</string>
+    <string name="tmc_add_sure">确定</string>
+    <string name="tmc_period_setting">设置提醒时间</string>
+    <string name="tmc_period_complete">完成</string>
+    <string name="ok_tmc_rss_dialog">确认</string>
+    <string name="open_tmc_rss_dialog">开启</string>
+    <string name="cancle_tmc_rss_dialog">取消</string>
+    <string name="title_tmc_rss_dialog">提示</string>
+    <string name="content_tmc_rss_dialog">确认要删除此路况提醒吗？</string>
+
+    <string name="hud_location">GPS导航定位中</string>
+    <string name="confirm_value">接受</string>
+    <string name="north">北</string>
+    <string name="copyright_value">GS(2018)43号</string>
+    <string name="publication">ISBN 978-7-900561-09-1</string>
+    <string name="data_provider">Navinfo</string>
+    <string name="traffic_provider">CenNavi</string>
+    <string name="official_web">https://mobile.mapbar.com</string>
+    <string name="official_weixin">图吧导航</string>
+    <string name="official_qq_group">257773058</string>
+    <string name="bbs_mail">http://bbs.mapbar.com</string>
+    <string name="customer_tel">4006616677</string>
+    <string name="customer_tle_two">01068039296</string>
+    <string name="customer_mailbox">sopportnav@mapbar.com</string>
+    <string name="copy_qq_group_dialog_msg">QQ群号已复制到剪贴版,请在QQ中搜索群,并粘贴此号码即可</string>
+    <string name="copy_weixin_dialog_msg">微信账号已复制到剪贴板，请在微信公众号中搜索公众号，并粘贴此名称即可</string>
+
+    <!-- 步行算路相关-->
+
+    <string name="caihong_bus">彩虹公交</string>
+    <string name="pro_fun">专业版功能</string>
+    <string name="caihong_bus_content">● 公交、地铁换乘查询\n\n● 到站闹钟\n\n● 周边站点、线路查询\n\n● 地铁线路图\n\n● 线路站牌</string>
+    <string name="down_caihong_bus">安装彩虹公交后启用这些功能</string>
+    <string name="data_store_offlinenavi">离线导航</string>
+    <string name="data_store_offlinenavi1">下载后，不开网络也能进行导航</string>
+    <string name="data_store_navivioce">导航语言</string>
+    <string name="data_store_viocenavi">语音导航</string>
+    <string name="data_store_downloaddata">下载数据</string>
+    <string name="data_store_offline_navigation_note">使用离线导航功能，需下载基础数据及省市数据</string>
+
+    <!--软件自更新UpdateProcess-->
+    <string name="update_check">正在检测...</string>
+
+    <!-- ▼ 场景相关 ▼ -->
+    <!-- ▲ 场景相关 ▲ -->
+    <string name="only_one_sdcard">只有当前默认存储路径,不可更换其他路径。</string>
+    <string name="path_with_format">路径：%s</string>
+    <string name="free_space_with_format">剩余空间%s</string>
+    <string name="survey_uncity">对不起，当前所在城市暂不支持路况概览服务。</string>
+    <string name="survey_loading_uncity">正在获取路况信息..请确保定位服务已经打开</string>
+    <string name="change_road_main">在主路</string>
+    <string name="change_road_other">在辅路</string>
+    <string name="down_road_bridge">高架下</string>
+    <string name="up_road_bridge">高架上</string>
+
+    <string name="wechat_unbind_account">解绑账号</string>
+    <string name="wechat_tips_title_1">打开手机微信扫描二维码</string>
+    <string name="wechat_tips_content_1">打开手机微信，扫描左侧二维码即可绑定到%1$s</string>
+    <string name="wechat_tips_title_2">微信位置发送到%1$s</string>
+    <string name="wechat_tips_content_2">绑定后，可以用手机向汽车发送位置导航（“长按微信位置信息>打开”）</string>
+
+    <string name="wechat_bind_title">账号绑定成功</string>
+    <string name="wechat_bind_content_1">使用说明：</string>
+    <string name="wechat_bind_content_2">一、在手机微信中“长按位置信息>打开”发送到车</string>
+    <string name="wechat_bind_content_3">二、在手机微信-%1$s公众号中发送位置信息到车</string>
+    <string name="wechat_qr_error">获取二维码失败\n请检查网络连接</string>
+    <string name="wechat_qr_right">微信扫描二维码</string>
+
+
+    <!-- ▼ 数据同步相关 ▼ -->
+    <string name="transport_title">数据同步</string>
+    <string name="data_syncing">数据同步中&#8230;</string>
+    <string name="data_sync_failure">数据同步失败</string>
+    <string name="data_sync_finished">同步完成</string>
+    <string name="data_syncing_msg">数据同步中请勿作其他操作,以免连接中断</string>
+    <string name="stop_sync_data">停止同步</string>
+    <string name="stop_sync_data_confirm">确认</string>
+    <string name="send_failed_confirm">确定</string>
+    <string name="stop_sync_data_cancle">取消</string>
+    <string name="stop_sync_data_msg">同步尚未完成,现在停止同步可\r\n能造成数据无法使用。请确认!</string>
+    <string name="send_failed_title">发送失败</string>
+    <string name="connect_break">连接已断开</string>
+    <string name="send_failed_msg">连接已断开,请检查连接状态后重试</string>
+    <string name="no_connect_with_car">当前未连接到车机</string>
+    <string name="free_space_of_car">车机剩余空间</string>
+    <string name="transfer_data">数据同步</string>
+    <string name="data_size_version">9BG/64GB</string>
+    <string name="data_size_version_format">%1$s　 %2$s</string>
+    <string name="transport_user_helper">使用帮助</string>
+    <string name="transport_helper_msg">1、手机通过数据线或热点与车机连接。\n2、将手机中已下载导航数据同步到车机端“%1$s”软件中。\n3、车机端“%2$s”离线数据同步完成！ \n4、若长时间仍未连接，请尝试重新启动 %3$s 或 重新拔插数据线。\n5、数据同步功能仅支持安卓v9.2.2版本以上客户端，请及时更新。\n6、数据线更新方式需要手机开启USB调试模式。</string>
+    <string name="transport_helper_msg_land">1、手机通过数据线或热点与车机连接。 \n\n2、将手机中已下载导航数据同步到车机端“%1$s”软件中。 \n\n3、车机端“%2$s”离线数据同步完成！ \n\n4、若长时间仍未连接，请尝试重新启动 %3$s 或 重新拔插数据线。 \n\n5、数据同步功能仅支持安卓v9.2.2版本以上客户端，请及时更新。 \n\n6、数据同步完成后，新数据将在应用重启后生效。</string>
+    <string name="transport_no_connect_hint_msg">确认汽车已连接到手机热点</string>
+    <string name="transport_open_wifi">点击打开手机wifi共享热点</string>
+    <string name="transport_download_more">下载更多城市数据</string>
+    <string name="transport_enable">可发送数据</string>
+    <string name="transport_send">发送</string>
+    <string name="transport_sent">已发送</string>
+    <string name="wifi_info_text">免流量 与手机端同步数据\n请确认车机已连接到手机热点</string>
+    <string name="usb_info_text">速度快 易操作\n手机通过数据线连接到车机</string>
+    <string name="usb_update_btn">数据线更新</string>
+    <string name="wifi_update_btn">使用手机更新</string>
+    <string name="transport_connecting">连接中···</string>
+    <string name="transport_connected">连接成功</string>
+    <string name="transport_usb_tip_title">手机通过数据线连接到车机</string>
+    <string name="transport_usb_tip_conent">需开启手机USB模式</string>
+    <string name="transport_wifi_tip_title">请确认车机已连接到手机热点</string>
+    <string name="transport_to_data_title">手机打开数据同步</string>
+    <string name="transport_to_data_conent">“%1$s手机端>我的>数据同步”</string>
+    <string name="transport_usb_help">数据线同步功能需要您开启手机端的USB调试模式：</string>
+    <string name="transport_usb_help_tip_1">1、打开手机设置界面，在系统设置中，找到“开发者选项”并开启。</string>
+    <string name="transport_usb_help_tip_2">2、开启开发者选项后，打开USB调试开关。\n</string>
+    <string name="transport_usb_help_twice">抱歉仍未检测到设备，可能当前设备下不支持数据线更新，建议使用手机热点更新。</string>
+    <string name="transport_wifi_setting">WiFi未连接，去设置</string>
+    <string name="transport_wifi_link_break_title">连接已断开</string>
+    <string name="transport_wifi_link_break_content">连接已断开，请检查连接状态后重试。</string>
+    <string name="transport_wifi_sync_remain_time">剩余时间约</string>
+    <string name="transport_wifi_sync_failed">数据同步失败，请检查连接状态后重试</string>
+    <string name="transport_wifi_sync_car_failed">数据同步失败，请检查连接状态后在手机端重试</string>
+    <string name="transport_dont_open_usb">暂不开启</string>
+    <string name="transport_opened_usb">已经打开</string>
+    <string name="transport_use_wifi_sync">使用热点更新</string>
+    <string name="transport_usb_try_again">点击重试</string>
+    <string name="transport_retry_send">重试</string>
+    <string name="transport_failed_no_space">车机端存储空间不足，无法发送数据，请释放一些存储空间并重试</string>
+
+    <!-- ▲ 数据同步相关 ▲ -->
+
+    <!--群组导航相关 Start-->
+    <string name="group_navi">群组导航</string>
+    <string name="number_enter_group_navi">输入已有群号, 快速加入群组导航 ></string>
+    <string name="help">帮助</string>
+    <!--▼勿轻易更下内容,横屏时是根据\n去切割文字后为每行文字添加样式的▼-->
+    <string name="group_navi_help_content">1.如何建群?\n设置目的地后, 并分享给好友, 自动建群。创建者为群管理员，并且可以更改群目的地。\n\n
+        2. 每人最多可以建立几个群?\n每人创建群的数量无限制，并且可以无限次加入朋友创建的群。\n\n
+        3. 每个群的有效期多久？\n直到创建者解散群\n\n
+        4. 如果群解散后，还能找回吗？\n群解散后就不能找回了。\n\n
+        5. 每个群人数的上线最多多少？\n目前，每个群人数无限制。\n\n
+        6. 图吧群组导航的实时位置会一直共享吗? \n实时位置只会在当前进入的群显示。退出软件或群组，实时位置消失。\n\n
+        7. 图吧群组导航的实时位置会显示在多个群组吗? \n实时位置只能在一个群显示。\n
+
+    </string>
+    <!-- ▲ 勿轻易更下内容,横屏时是根据\n去切割文字后为每行文字添加样式的 ▲ -->
+    <string name="input_group_number">输入群号码</string>
+    <string name="group_number">群号码</string>
+    <string name="enter">进入</string>
+    <string name="click_speak">点击说话</string>
+    <string name="chat_history">聊天记录</string>
+    <string name="user_list">好友列表</string>
+    <string name="traffic_crowding">拥堵</string>
+    <string name="traffic_slow">缓慢</string>
+    <string name="traffic_open">畅通</string>
+    <string name="destination_">目的地: %s\t</string>
+    <string name="error_group_id_input">请输入正确的群号码</string>
+    <string name="share_weixin_text">长按复制这条信息，打开%1$s即可快速加入群组导航。进群号码%2$s，记得更新到最新版的%3$s哦</string>
+    <string name="reupload_the_message">重发该消息?</string>
+    <string name="reupload">重发</string>
+    <string name="group_navi_guide_show_friend_list">点击这里可以查看好友列表\n进行群设置</string>
+    <string name="share_group_title">分享群组</string>
+    <string name="share_group_destination_title">群目的地设置成功</string>
+    <string name="has_copyed_message">已为您复制以下信息</string>
+    <string name="not_share">不分享了</string>
+    <string name="go_paste">去粘贴</string>
+    <string name="share_enter_group">进入群组</string>
+    <string name="share_back_group_setting">返回群设置</string>
+    <string name="tip_group_owner_release">群主已解散本群，您将退出本群</string>
+    <string name="confirm_know">知道了</string>
+    <string name="net_error_info">请检查网络后重试</string>
+    <string name="play_error">播放错误</string>
+    <string name="no_chat_info">没有聊天记录 发个语音试试吧</string>
+    <string name="group_join_number">进群号码%1$s</string>
+    <string name="group_setting">群设置</string>
+
+    <!--群组导航相关 End-->
+    <!--服务条款 start-->
+    <string name="agree">同意</string>
+    <string name="no_agree">不同意</string>
+    <string name="provision_info">*也可以选择“同意”，代表您直接同意该条款</string>
+    <string name="kindly_reminder">温馨提示</string>
+    <string name="kindly_reminder_msg">图吧产品服务仅会将您的信息用于提供服务，我们会保护您的个人信息安全。</string>
+    <string name="i_know">我知道了</string>
+    <string name="provision_error_info">网络异常，请检查网络连接\n联网后重新打开查看相关条款</string>
+    <string name="record_to0_short">录音时间太短</string>
+    <string name="provision_page_name">隐私政策</string>
+    <!--服务条款 end-->
+
+    <!-- ▼ bubble ▼ -->
+    <string name="index_page_go_there">到这去</string>
+    <string name="index_page_from_here">从这走</string>
+    <string name="accuracy_format">(精确到%s米)</string>
+    <!-- ▲ bubble ▲ -->
+
+    <!--<poi详情-->
+    <string name="poi_add_shortcut">添加桌面快捷方式</string>
+    <string name="poi_breif_unit_title">简介</string>
+    <string name="poi_4s_star_rating">星级：</string>
+    <string name="poi_brief_opening_time">营业时间：%s</string>
+    <string name="poi_brief_taste">口味：</string>
+    <string name="poi_charge_unit_title">收费情况</string>
+    <string name="poi_charge_info">收费信息：</string>
+    <string name="poi_feed_back_title">反馈</string>
+    <string name="poi_oil_note">仅供参考,请以实地为准</string>
+    <string name="poi_oil_title">油价</string>
+    <string name="poi_picture_title">图片展示</string>
+    <string name="poi_parking_title">车位信息</string>
+    <string name="poi_parking_empty">空车位: </string>
+    <string name="poi_recommend_title">推荐菜</string>
+    <string name="poi_service_title">服务</string>
+    <string name="group_navi_create_group">创建群</string>
+    <string name="group_navi_help">帮助</string>
+    <!--<string name="group_navi_call">快来设置目的地分享给好友\n一起组队出发吧！</string>-->
+    <string name="violation_title_add">添加</string>
+    <string name="user_center_setting">设置</string>
+
+    <!--提示页面相关-->
+    <string name="no_net_hint_msg">网络异常，请检查网络连接</string>
+    <string name="no_net_intent_btn_text">点击重试</string>
+    <string name="no_score_hint_msg">没有导航积分可领取</string>
+    <string name="no_score_intent_btn_text">去导航</string>
+    <string name="no_data_sync_hint_msg">当前无可发送数据,请先下载数据</string>
+    <string name="no_data_sync_intent_btn_text">下载更多数据</string>
+    <string name="no_yourself_electronic_eye_hint_msg">您还没有添加自定义电子眼</string>
+    <string name="no_yourself_electronic_eye_btn_text">立即添加</string>
+    <string name="no_rss_hint_msg">订阅路况\n及时为您提供路况提醒</string>
+    <string name="no_travel_hint_msg">还没有导航行程\n开始导航后会自动生成行程\n现在就去导航吧~</string>
+    <string name="no_fried_hint_msg">还没有好友加入群组</string>
+    <string name="no_fried_intent_btn_text">邀请好友</string>
+    <string name="no_chat_record_hint_msg">没有聊天记录 发个语音试试吧</string>
+    <string name="no_search_result_hint_msg">未找到合适结果,请换个词试试</string>
+    <string name="no_message_hint_msg">您暂时还没有收到推送消息</string>
+    <string name="str_empty_data_info">您还没有下载数据，\n请到城市列表界面选择数据进行下载</string>
+
+    <!--分享平台-->
+    <string name="share_platform_weixin">微信</string>
+    <string name="share_platform_weixin_circle">朋友圈</string>
+    <string name="share_platform_sina">微博</string>
+    <string name="share_platform_sms">短信</string>
+    <string name="share_platform_qq">QQ</string>
+    <string name="share_platform_car">车机</string>
+
+
+
+    <string name="along_search_tip">正在查询...</string>
+    <string name="along_search_no_net">请检查网络连接</string>
+    <string name="along_search_no_result">未找到合适结果</string>
+    <string name="along_search_time_out">搜索超时，请稍后再试</string>
+    <string name="along_search_cancel">搜索已取消</string>
+    <string name="cancel_favorite_str">取消收藏</string>
+    <string name="add_favorite_sucess_str">收藏成功</string>
+
+    <!--搜索上拉下拉-->
+    <string name="loading">加载中</string>
+    <string name="loading_next">松开加载下一页</string>
+    <string name="loading_pre">松开加载上一页</string>
+    <string name="current_is_page">当前第%d页</string>
+    <string name="no_response">未找到搜索结果</string>
+    <string name="no_more">没有更多内容</string>
 </resources>

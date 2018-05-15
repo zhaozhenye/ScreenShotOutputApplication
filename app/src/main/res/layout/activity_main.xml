@@ -8,6 +8,11 @@
     android:padding="10dp"
     >
 
+    <mytool.yixin.navinfo.com.navigation.view.NaviTitleView
+        android:id="@+id/naviTitleView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
@@ -92,13 +98,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="图片地址是: "/>
+        android:text="图片地址是: "
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btn_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="跳转到导航APP"
+        android:visibility="gone"/>
 
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"

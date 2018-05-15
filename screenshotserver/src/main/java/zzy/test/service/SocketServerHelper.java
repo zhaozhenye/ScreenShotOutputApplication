@@ -1,10 +1,12 @@
 package zzy.test.service;
 
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -78,7 +80,7 @@ public class SocketServerHelper {
                             s = bufferedReader.readLine();
                             if ("ScreenShot".equals(s)) {
                                 //接收到客户端的截屏请求后，执行截屏操作
-                                ScheduledFuture<String> future = executorService.schedule(new ShotScreenThread(), 0, TimeUnit.MILLISECONDS);
+                                ScheduledFuture<Bitmap> future = executorService.schedule(new ShotScreenThread(), 0, TimeUnit.MILLISECONDS);
                                 blockingQueue.add(future);
                                 while (!blockingQueue.isEmpty()) {
                                     ScheduledFuture future2 = blockingQueue.poll();
@@ -129,6 +131,24 @@ public class SocketServerHelper {
                 try {
                     PrintWriter out = new PrintWriter(mSocket.getOutputStream());
                     out.print(chat + "\n");
+                    out.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    /**
+     * @steps write();
+     * @effect socket服务端发送信息
+     */
+    public void sendMessage(final byte[] bytes) {
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DataOutputStream out = new DataOutputStream(mSocket.getOutputStream());
+                    out.write(bytes);
                     out.flush();
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -6,4 +6,7 @@ package mytool.yixin.navinfo.com.screenshotserver;
         interface IImagePath {
 
      String getImagePath();
+     byte[] getImageBytes();
+     Bitmap getBitmap();
+     String getBitmapStr();
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,12 @@ public class ScreenShotHelper {
             }
         }
         return allchildren;
+    }
+
+    public  static byte[] getBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);//压缩位图
+        return baos.toByteArray();//创建分配字节数组
     }
 
     public static Bitmap getBitmapFromView(View view) {

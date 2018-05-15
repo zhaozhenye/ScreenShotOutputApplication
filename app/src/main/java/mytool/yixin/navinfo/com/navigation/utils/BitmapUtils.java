@@ -1,4 +1,4 @@
-package mytool.yixin.navinfo.com.screenshotoutputapplication;
+package mytool.yixin.navinfo.com.navigation.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

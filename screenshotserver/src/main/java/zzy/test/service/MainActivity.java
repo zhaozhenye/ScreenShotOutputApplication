@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private SocketServerHelper server;
     private EditText edit_text;
-
     public static final int SOCKET_PORT = 12310;
 
     @Override
@@ -30,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initServerSocket();
+
+
+
+
+
+
     }
 
 
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
      * 初始化socket
      */
     private void initServerSocket() {
+
         server = new SocketServerHelper(SOCKET_PORT);
 
         /**socket服务端开始监听*/

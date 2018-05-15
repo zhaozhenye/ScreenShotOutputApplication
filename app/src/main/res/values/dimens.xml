@@ -1,0 +1,1047 @@
+<resources>
+
+    <!-- 以下是通用部分（多页面）-->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_vertical_margin">16.0dp</dimen>
+    <!--文字字号大小 -->
+    <dimen name="F1">12sp</dimen>
+    <!-- 辅助文字(小文子) -->
+    <dimen name="F2">14sp</dimen>
+    <!-- 辅助文字 -->
+    <dimen name="F3">15sp</dimen>
+    <!-- list,标题,导航条操作文字,按钮文字 -->
+    <dimen name="F4">18sp</dimen>
+    <!-- gps丢星时的文字尺寸-->
+    <dimen name="F5">25sp</dimen>
+    <!-- 导航条 -->
+    <dimen name="F6">24sp</dimen>
+    <!-- 导航模式中的重要文字-->
+    <dimen name="F8">19sp</dimen>
+    <!--辅助文字 -->
+    <dimen name="F10">10sp</dimen>
+    <!--导航模式中的重要文字 -->
+    <dimen name="F11">30sp</dimen>
+    <!-- 路线方案底部栏按钮文字大小-->
+    <!-- 星图横屏GPS时刻 -->
+    <dimen name="F9">11sp</dimen>
+    <!-- 星图精度 -->
+    <dimen name="F12">17sp</dimen>
+    <!-- 电子眼列表横屏文字 -->
+    <dimen name="F13">20sp</dimen>
+    <!-- 电子眼中心横屏速度文字 -->
+    <dimen name="F14">40sp</dimen>
+    <dimen name="F15">13sp</dimen>
+    <dimen name="F16">16sp</dimen>
+    <dimen name="F17">28sp</dimen>
+    <dimen name="F18">50sp</dimen>
+    <dimen name="F20">22sp</dimen>
+    <dimen name="F21">9sp</dimen>
+    <dimen name="F22">60sp</dimen>
+    <dimen name="F23">40sp</dimen>
+    <dimen name="F24">54sp</dimen>
+    <dimen name="F25">32sp</dimen>
+    <dimen name="F26">20sp</dimen>
+    <dimen name="F27">28sp</dimen>
+    <dimen name="F28">30sp</dimen>
+    <dimen name="F33">33sp</dimen>
+    <dimen name="F44">44sp</dimen>
+    <dimen name="F45">45sp</dimen>
+    <dimen name="F46">20sp</dimen>
+
+
+    <!-- 文字边距（左右）-->
+    <dimen name="FMH1">4dp</dimen>
+
+    <!-- 分割线边距-->
+    <dimen name="LM1">12dp</dimen>
+
+    <!-- 蓝板尺寸 -->
+    <!--<dimen name="common_blue_space_01">82dp</dimen>
+    <dimen name="common_blue_space_02">200dp</dimen>
+    <dimen name="common_blue_space_03">288dp</dimen>-->
+    <dimen name="common_blue_space_02">170dp</dimen>
+    <dimen name="common_blue_space_03">245dp</dimen>
+    <dimen name="common_blue_space_04">260dp</dimen>
+    <dimen name="common_blue_space_05">215dp</dimen>
+
+    <!-- item的高度 -->
+    <!-- 气泡面板底部栏高度-->
+    <dimen name="ITEM_H1">40dp</dimen>
+    <!-- 底部bottom栏-->
+    <dimen name="ITEM_H2">45dp</dimen>
+    <!-- 按钮所在列表固定高度（确认取消按钮）-->
+    <dimen name="ITEM_H3">45dp</dimen>
+    <!-- 按钮所在列表高度（单一按钮）-->
+    <dimen name="ITEM_H4">50dp</dimen>
+    <!-- title栏高度 -->
+    <dimen name="ITEM_H5">44dp</dimen>
+    <!-- ITEM_H7 listView的footerView高度(清除历史) -->
+    <dimen name="ITEM_H6">30dp</dimen>
+    <!--ITEM_9周边搜横屏左侧带图片控件宽-->
+    <dimen name="ITEM_H7">35dp</dimen>
+    <!-- 主界面搜索栏高度 -->
+    <!-- 搜索主界面横屏选点高度 -->
+    <!-- 路线方案底部栏按钮长度 -->
+    <dimen name="ITEM_H10">64dp</dimen>
+
+    <!-- 导航设置功能项高度 -->
+    <dimen name="ITEM_H11">75dp</dimen>
+
+    <dimen name="ITEM_H12">90dp</dimen>
+
+    <!-- 积分页面两行文字样式item的整体高度-->
+    <dimen name="ITEM_12">60dp</dimen>
+    <dimen name="ITEM_13">58dp</dimen>
+    <!-- 路线方案底部栏高度 -->
+    <dimen name="ITEM_15">170dp</dimen>
+    <dimen name="ITEM_16">231dp</dimen>
+
+
+    <!-- icon尺寸 -->
+    <dimen name="IS1">16dp</dimen>
+    <!-- 底部导航栏icon宽高-->
+    <dimen name="IS2">31dp</dimen>
+    <!-- 指南针宽高 -->
+    <dimen name="IS3">20dp</dimen>
+    <!-- 地图主界面右上，左下，右下图片宽高 -->
+    <dimen name="IS4H">23dp</dimen>
+    <!-- 开关高 -->
+    <!--  开关宽 -->
+    <dimen name="IS5">55dp</dimen>
+    <!-- gps丢星动画宽高 -->
+    <dimen name="IS6">60dp</dimen>
+    <!-- 用户中心头像大小 -->
+    <dimen name="IS7">15dp</dimen>
+    <dimen name="IS8">30dp</dimen>
+    <dimen name="IS10">13dp</dimen>
+    <dimen name="IS11">8dp</dimen>
+    <dimen name="IS12">36dp</dimen>
+    <dimen name="IS13">56dp</dimen>
+
+    <!-- 控件宽高 -->
+    <dimen name="CT1">39dp</dimen>
+    <dimen name="CT2">44dp</dimen>
+    <dimen name="CT3">46dp</dimen>
+    <dimen name="CT5">32dp</dimen>
+    <dimen name="CT6">110dp</dimen>
+    <dimen name="CT7">25dp</dimen>
+    <dimen name="CT8">60dp</dimen>
+    <dimen name="CT9">130dp</dimen>
+    <dimen name="CT11">90dp</dimen>
+    <dimen name="CT13">1dp</dimen>
+    <dimen name="CT15">47dp</dimen>
+    <dimen name="CT16">36dp</dimen>
+    <dimen name="CT18">55dp</dimen>
+    <dimen name="CT19">88dp</dimen>
+    <dimen name="CT20">355dp</dimen>
+    <dimen name="CT22">55dp</dimen>
+    <dimen name="CT23">215dp</dimen>
+    <dimen name="CT24">365dp</dimen>
+    <dimen name="CT25">32dp</dimen>
+    <dimen name="CT26">60dp</dimen>
+    <dimen name="CT27">40dp</dimen>
+    <dimen name="CT28">70dp</dimen>
+    <dimen name="CT29">53dp</dimen>
+    <dimen name="CT30">50dp</dimen>
+    <dimen name="CT31">80dp</dimen>
+    <dimen name="CT33">435dp</dimen>
+    <dimen name="CT34">320dp</dimen>
+    <dimen name="CT35">125dp</dimen>
+    <dimen name="CT37">270dp</dimen>
+
+    <dimen name="CT40">113dp</dimen>
+    <dimen name="CT41">150dp</dimen>
+    <dimen name="CT42">100dp</dimen>
+    <dimen name="CT43">10dp</dimen>
+    <dimen name="CT44">30dp</dimen>
+
+    <dimen name="CT45">280dp</dimen>
+    <dimen name="CT46">65dp</dimen>
+    <dimen name="CT47">305dp</dimen>
+    <dimen name="CT48">275dp</dimen>
+    <dimen name="CT49">140dp</dimen>
+    <dimen name="CT50">440dp</dimen>
+    <dimen name="CT51">360dp</dimen>
+
+
+    <!-- GPS丢星状态文字与图标的间距 -->
+    <dimen name="M1">10dp</dimen>
+
+    <!-- 对外边距 -->
+    <dimen name="OM1">10dp</dimen>
+    <dimen name="OM2">5dp</dimen>
+    <dimen name="OM3">8dp</dimen>
+    <dimen name="OM4">21dp</dimen>
+    <dimen name="OM5">6dp</dimen>
+    <dimen name="OM6">15dp</dimen>
+    <!--OM7 周边搜横屏文字与图片距离-->
+    <dimen name="OM7">9dp</dimen>
+    <!--OM8 周边搜横屏图片左边距-->
+    <dimen name="OM8">23dp</dimen>
+    <!--OM9 周边搜竖屏文字与图片距离-->
+    <dimen name="OM9">7dp</dimen>
+    <!--OM10 周边搜竖屏图片左边距-->
+    <dimen name="OM10">13dp</dimen>
+    <!-- 导航底部栏圆角-->
+    <dimen name="OM11">2dp</dimen>
+    <!-- 主界面横屏搜索框距顶部-->
+    <dimen name="OM12">3dp</dimen>
+    <!-- title栏图片距离顶部高度-->
+    <dimen name="OM13">12dp</dimen>
+    <!-- 积分中心页面，积分说明的底部边距-->
+    <dimen name="OM14">35dp</dimen>
+    <!-- 导航积分详情Item分割线的边距-->
+    <dimen name="OM15">28dp</dimen>
+    <!-- 导航积分详情无内容图标上边距-->
+    <!--导航积分详情无内容文字上边距 -->
+    <dimen name="OM17">14dp</dimen>
+    <!--主界面比例尺文本距离顶部的高度-->
+    <dimen name="OM19">4dp</dimen>
+    <dimen name="OM21">120dp</dimen>
+    <dimen name="OM22">30dp</dimen>
+    <dimen name="OM23">20dp</dimen>
+    <dimen name="OM24">60dp</dimen>
+    <dimen name="OM25">72dp</dimen>
+    <dimen name="OM26">50dp</dimen>
+
+    <!-- ▼ 横屏公共常用数值 ▼ -->
+    <!--左边面板的宽度(如:气泡面板、搜索列表面板等)-->
+    <dimen name="LAND_COMMON_PANEL_SPACE">225dp</dimen>
+    <!-- ▲ 横屏公共常用数值 ▲ -->
+
+    <!-- 引导页 -->
+
+    <!-- 常用间距 -->
+    <dimen name="space_300">300.0dp</dimen>
+    <dimen name="space_250">250.0dp</dimen>
+    <dimen name="space_200">200.0dp</dimen>
+    <dimen name="space_180">180.0dp</dimen>
+    <dimen name="space_140">140.0dp</dimen>
+    <dimen name="space_128">128.0dp</dimen>
+    <dimen name="space_120">120.0dp</dimen>
+    <dimen name="space_117">117.0dp</dimen>
+    <dimen name="space_115">115.0dp</dimen>
+    <dimen name="space_100">100.0dp</dimen>
+    <dimen name="space_92">92.0dp</dimen>
+    <dimen name="space_91_5">91.5dp</dimen>
+    <dimen name="space_90">90dp</dimen>
+    <dimen name="space_80">80.0dp</dimen>
+    <dimen name="space_75">75.0dp</dimen>
+    <dimen name="space_73">73.0dp</dimen>
+    <dimen name="space_70">70.0dp</dimen>
+    <dimen name="space_68">68.0dp</dimen>
+    <dimen name="space_63">63.0dp</dimen>
+    <dimen name="space_60">60.0dp</dimen>
+    <dimen name="space_56">56.0dp</dimen>
+    <dimen name="space_55">55.0dp</dimen>
+    <dimen name="space_50">50.0dp</dimen>
+    <dimen name="space_40">40.0dp</dimen>
+    <dimen name="space_44">44.0dp</dimen>
+    <dimen name="space_45">45.0dp</dimen>
+    <dimen name="space_37">37.0dp</dimen>
+    <dimen name="space_35">35.0dp</dimen>
+    <dimen name="space_30">30.0dp</dimen>
+    <dimen name="space_29">29.0dp</dimen>
+    <dimen name="space_28">28.0dp</dimen>
+    <dimen name="space_26">26.0dp</dimen>
+    <dimen name="space_25">25.0dp</dimen>
+    <dimen name="space_24">24.0dp</dimen>
+    <dimen name="space_23">23.0dp</dimen>
+    <dimen name="space_22">22.0dp</dimen>
+    <dimen name="space_20">20.0dp</dimen>
+    <dimen name="space_18">18.0dp</dimen>
+    <dimen name="space_17">17.0dp</dimen>
+    <dimen name="space_16">16.0dp</dimen>
+    <dimen name="space_15">15.0dp</dimen>
+    <dimen name="space_14">14.0dp</dimen>
+    <dimen name="space_13">13.0dp</dimen>
+    <dimen name="space_12">12.0dp</dimen>
+    <dimen name="space_11">11.0dp</dimen>
+    <dimen name="space_10">10.0dp</dimen>
+    <dimen name="space_9">9.0dp</dimen>
+    <dimen name="space_8">8.0dp</dimen>
+    <dimen name="space_7">7.0dp</dimen>
+    <dimen name="space_6">6.0dp</dimen>
+    <dimen name="space_5">5.0dp</dimen>
+    <dimen name="space_4">4.0dp</dimen>
+    <dimen name="space_3">3.0dp</dimen>
+    <dimen name="space_2">2.0dp</dimen>
+    <dimen name="space_1">1.0dp</dimen>
+
+    <dimen name="reminder_text_size">20sp</dimen>
+
+    <!-- 横屏左蓝色面板 -->
+    <dimen name="landscape_left_menu_width">70dp</dimen>
+    <dimen name="landscape_left_info_panel_width">170dp</dimen>
+
+    <!-- 横屏地图上搜索框宽度 -->
+
+    <!-- 以下是非通用部分-->
+
+    <!-- MapbarLog.d -->
+    <dimen name="bottom_guide_viewer_smallicon_width">8dp</dimen>
+    <dimen name="bottom_guide_viewer_horizontal_margin_left">2dp</dimen>
+    <dimen name="bottom_guide_viewer_vertical_margin_left">4dp</dimen>
+    <dimen name="bottom_guide_viewer_horizontal_distance">4dp</dimen>
+    <dimen name="bottom_guide_viewer_top_text_size">8sp</dimen>
+
+
+    <dimen name="simple_icon_margin_left">15dp</dimen>
+    <dimen name="simple_title_margin_left">15dp</dimen>
+    <dimen name="simple_arrow_margin_right">10dp</dimen>
+    <dimen name="simple_midtitle_margin_left">5dp</dimen>
+    <dimen name="simple_switch_margin_right">15dp</dimen>
+    <dimen name="item_divider_width">45dp</dimen>
+    <dimen name="simple_title_size">15sp</dimen>
+    <dimen name="simple_right_rect_width">145dp</dimen>
+    <dimen name="simple_small_text_size">12sp</dimen>
+    <dimen name="simple_small_text_size_h">13sp</dimen>
+    <dimen name="simple_title_padding">10dp</dimen>
+
+
+    <dimen name="title_back_h">22dp</dimen>
+    <dimen name="title_padding">10dp</dimen>
+    <dimen name="title_weather_left_padding">25dp</dimen>
+    <dimen name="title_text_size">18sp</dimen>
+    <dimen name="title_text_mid_size">18sp</dimen>
+
+    <!-- 用户登录页面 -->
+    <dimen name="user_login_page_margin">10dp</dimen>
+    <dimen name="user_title_height">190dp</dimen>
+    <dimen name="user_info_height">160dp</dimen>
+
+    <!--用户详情-->
+    <dimen name="user_head_portrait_width">60dp</dimen>
+    <dimen name="user_head_portrait_height">60dp</dimen>
+
+    <dimen name="user_head_not_portrait_width">50dp</dimen>
+    <dimen name="user_head_not_portrait_height">50dp</dimen>
+
+    <!-- 添加车辆页面 -->
+    <dimen name="add_car_page_margin">15dp</dimen>
+    <dimen name="add_car_textview_textsize">16sp</dimen>
+    <dimen name="add_car_edittext_textsize">14sp</dimen>
+
+    <!-- 搜索-->
+    <dimen name="select_city_group_text_size">15sp</dimen>
+    <!-- 路线选择页面 -->
+    <dimen name="route_cycle_r_large">5dp</dimen>
+    <dimen name="route_cycle_r_big">4dp</dimen>
+    <dimen name="route_cycle_r_normal">3dp</dimen>
+
+
+    <dimen name="route_cycle_r_small">1.5dp</dimen>
+    <dimen name="route_right_width">50dp</dimen>
+    <dimen name="route_text_size">15sp</dimen>
+    <dimen name="route_item_height">45dp</dimen>
+    <dimen name="route_ic_add_size">24dp</dimen>
+    <dimen name="route_margin">15dp</dimen>
+    <dimen name="route_flag_size">16dp</dimen>
+    <dimen name="route_touch_size">25dp</dimen>
+    <dimen name="route_offset_0_5dp">0.5dp</dimen>
+    <dimen name="small_space_9dp">9dp</dimen>
+
+
+    <dimen name="custom_toast_width">55dp</dimen>
+    <dimen name="custom_toast_margin_left">15dp</dimen>
+    <dimen name="custom_toast_text_size">12sp</dimen>
+
+    <!-- rescue -->
+    <dimen name="service_rescue_phone_top">18dp</dimen>
+    <dimen name="service_rescue_phone_width">30dp</dimen>
+    <dimen name="service_rescue_text_top">8dp</dimen>
+    <dimen name="service_rescue_text_size">12sp</dimen>
+    <dimen name="service_rescue_title_width_h">170dp</dimen>
+    <dimen name="service_rescue_circle_group_heigh_h">187dp</dimen>
+    <dimen name="service_rescue_circle_width_h">86dp</dimen>
+
+
+    <dimen name="search_item_normal_height">70dp</dimen>
+    <!-- 美食 -->
+    <dimen name="search_item_food_height">115dp</dimen>
+    <!--美食 不存在推荐菜 -->
+    <dimen name="search_item_food_height2">83dp</dimen>
+    <dimen name="search_title_margin_left">5dp</dimen>
+    <dimen name="search_circle_radius">9.5dp</dimen>
+    <dimen name="search_item_margin_left">10dp</dimen>
+    <dimen name="search_recommd_margin_left">14dp</dimen>
+    <dimen name="search_item_margin_right">10dp</dimen>
+    <dimen name="search_circle_margintop">14dp</dimen>
+    <dimen name="search_pic_normal_width">50dp</dimen>
+    <dimen name="search_pic_food_width">65dp</dimen>
+    <dimen name="search_text_space_height">7dp</dimen>
+    <dimen name="search_star_height">12dp</dimen>
+    <dimen name="search_recommd_space_height">20dp</dimen>
+
+    <dimen name="search_title_size">15sp</dimen>
+    <dimen name="search_addr_size">12sp</dimen>
+    <!-- 详情页-->
+    <dimen name="detail_text_size">12sp</dimen>
+    <dimen name="detail_line_space">10dp</dimen>
+    <dimen name="detail_text1_margin_left">45dp</dimen>
+
+    <!--周边搜页面-->
+
+
+    <!-- electroniceye -->
+    <dimen name="electronic_eye_over_speed_panel_height">30dp</dimen>
+
+    <dimen name="electronic_eye_setting_item_width">160dp</dimen>
+    <dimen name="electronic_eye_setting_item_height">36dp</dimen>
+
+
+    <!-- 气泡面板 -->
+    <dimen name="annotation_panel_land_height">140dp</dimen>
+    <dimen name="annotation_panel_p_height">114dp</dimen>
+    <dimen name="annotation_panel_p_top_height">67dp</dimen>
+    <dimen name="annotation_panel_p_bottom_height">47dp</dimen>
+
+    <!-- PoiSummaryViewer -->
+    <dimen name="annotation_close_icon_hit_inset">5dp</dimen>
+    <dimen name="annotation_title_margin_bottom">2dp</dimen>
+    <dimen name="annotation_title_icon_margin_right">9dp</dimen>
+    <dimen name="annotation_title_size">18sp</dimen>
+    <dimen name="annotation_precise_size">14sp</dimen>
+    <dimen name="annotation_address_margin_top">12dp</dimen>
+    <dimen name="annotation_address_height">12dp</dimen>
+    <dimen name="annotation_number_size">14sp</dimen>
+    <!-- PanelSwitchViewer -->
+
+    <!-- SectionBrowseDrawableViewer -->
+    <!-- IndexViewer -->
+    <dimen name="index_dialog_margin">26dp</dimen>
+
+    <!-- linePageIndicator -->
+    <dimen name="default_line_indicator_stroke_width">1dp</dimen>
+
+    <!-- MapZoomViewer-->
+    <dimen name="map_zoom_viewer_margin_ringht">11dp</dimen>
+    <!-- NaviBottom -->
+    <dimen name="navigate_bottom_height">52dp</dimen>
+
+    <!-- HighWayGuide -->
+    <dimen name="high_way_guide_item_width">140dp</dimen>
+    <dimen name="high_way_guide_item_frame_size">1.5dp</dimen>
+    <dimen name="high_way_guide_padding">@dimen/OM2</dimen>
+    <dimen name="high_way_guide_drm_padding">3dp</dimen>
+    <dimen name="high_way_guide_info_size">17sp</dimen>
+    <dimen name="high_way_guide_dis_size">@dimen/F4</dimen>
+    <dimen name="high_way_guide_icon_size">20dp</dimen>
+    <dimen name="high_way_guide_icon_margin">@dimen/OM2</dimen>
+
+
+    <!-- NaviTitleViewer -->
+
+    <dimen name="navigate_title_width_land">@dimen/LAND_COMMON_PANEL_SPACE</dimen>
+    <dimen name="navigate_title_expand_width_land">@dimen/expand_view_width_land</dimen>
+    <dimen name="navigate_title_square_width">@dimen/LAND_COMMON_PANEL_SPACE</dimen>
+    <dimen name="navigate_title_square_height">360dp</dimen>
+    <dimen name="navigate_title_height_portrait">100dp</dimen>
+    <dimen name="navigate_title_expand_height">66dp</dimen>
+    <dimen name="navigate_title_turn_width_land">80dp</dimen>
+    <dimen name="navigate_title_turn_height_land">80dp</dimen>
+    <dimen name="navigate_title_turn_width_portrait">65dp</dimen>
+    <dimen name="navigate_title_turn_height_portrait">65dp</dimen>
+    <dimen name="navigate_title_turn_small_width_portrait">40dp</dimen>
+    <dimen name="navigate_title_turn_small_height_portrait">40dp</dimen>
+    <dimen name="navigate_title_turn_top_margin_land">50dp</dimen>
+
+    <!-- ArLaneLineViewer -->
+    <dimen name="arlane_line_viewer_item_width">32dp</dimen>
+    <dimen name="arlane_line_viewer_item_height">40dp</dimen>
+    <dimen name="arlane_line_viewer_item_image_width">32dp</dimen>
+    <dimen name="arlane_line_viewer_item_image_height">32dp</dimen>
+    <dimen name="arlane_line_viewer_item_line_width">1dp</dimen>
+    <dimen name="arlane_line_viewer_item_line_height">32dp</dimen>
+
+    <!-- setting -->
+    <dimen name="setting_state_middle_width">67dp</dimen>
+    <dimen name="setting_state_heigh">29dp</dimen>
+    <dimen name="setting_moon_heigh">14dp</dimen>
+    <dimen name="setting_moon_width">14dp</dimen>
+    <dimen name="setting_sun_margin_right">29dp</dimen>
+    <dimen name="setting_right_text_size">14sp</dimen>
+
+
+    <!-- maptoolsviewer -->
+    <dimen name="map_tools_light_heigh">20dp</dimen>
+
+    <dimen name="setting_car_arrow_right_width">9dp</dimen>
+    <dimen name="setting_car_icon_left_width">27dp</dimen>
+    <dimen name="setting_car_icon_left_height">32dp</dimen>
+
+    <!-- ExpandView -->
+    <dimen name="expand_view_height">210dp</dimen>
+    <dimen name="expand_view_width_land">250dp</dimen>
+
+
+    <!--LocationCourierDetailViewer  -->
+    <dimen name="location_courier_land_left_width">190dp</dimen>
+    <dimen name="location_courier_land_left_title_height">135dp</dimen>
+    <dimen name="location_courier_land_left_item_text_size">12sp</dimen>
+    <!--FavoritesDrawableViewer  -->
+    <dimen name="favorites_title_x">45dp</dimen>
+    <dimen name="favorites_title_height">40dp</dimen>
+    <dimen name="favorites_title_returnmode_height">31.5dp</dimen>
+    <dimen name="favorites_title_returnmode_width">40dp</dimen>
+    <dimen name="favorites_title_returnmode_height_h">37dp</dimen>
+    <dimen name="favorites_title_returnmode_width_h">46dp</dimen>
+    <dimen name="favorites_title_address_size">14sp</dimen>
+    <dimen name="favorites_title_returnmode_size">13sp</dimen>
+    <dimen name="favorites_title_nor_size_h">16sp</dimen>
+    <dimen name="favorites_title_narmalmode_size_h">17sp</dimen>
+    <dimen name="favorites_left_icon_marginleft">15dp</dimen>
+    <dimen name="favorites_title_normalmode_margintop">10dp</dimen>
+    <dimen name="favorites_title_normalmode_margintop_h">13dp</dimen>
+    <dimen name="favorites_title_normalmode_marginleft">40dp</dimen>
+    <dimen name="favorites_title_normalmode_marginleft_h">46dp</dimen>
+    <dimen name="favorites_title_address_margintop">37.5dp</dimen>
+    <dimen name="favorites_title_address_margintop_h">42dp</dimen>
+    <dimen name="favorites_dialog_edit_margintop">27.5dp</dimen>
+    <dimen name="favorites_dialog_edit_marginbottom">7.5dp</dimen>
+    <dimen name="favorites_dialog_edit_paddingleft">7.5dp</dimen>
+    <dimen name="favorites_dialog_edit_paddingtop">4.5dp</dimen>
+    <dimen name="favorites_dialog_edit_paddingbottom">4.5dp</dimen>
+    <!-- EmulatorSpeedAdjustViewer -->
+    <dimen name="car_emulator_function_item_divide_height">0.5dp</dimen>
+    <dimen name="car_emulator_navigation_top_width">100dp</dimen>
+
+    <!-- Datastore -->
+    <dimen name="datastore_item_title_size">16sp</dimen>
+    <dimen name="datastore_item_title_size_h">17sp</dimen>
+    <dimen name="datastore_item_message_size_h">13sp</dimen>
+    <dimen name="datastore_item_btn_size_h">15sp</dimen>
+
+    <dimen name="datastore_item_info_size">10sp</dimen>
+    <dimen name="datastore_item_margin_l">15dp</dimen>
+    <dimen name="datastore_item_margin_r">15dp</dimen>
+    <dimen name="datastore_item_divider_height">1dp</dimen>
+    <dimen name="datastore_item_progress_width">160dp</dimen>
+    <dimen name="datastore_progress_text">9sp</dimen>
+
+    <dimen name="datastore_downloaded_list_tip_text_size">14sp</dimen>
+    <dimen name="datastore_city_list_tip_text_size">12sp</dimen>
+    <dimen name="datastore_item_height">45dp</dimen>
+    <dimen name="datastore_child_item_margin_l">28dp</dimen>
+    <dimen name="datastore_child_item_margin_l_h">30dp</dimen>
+    <dimen name="datastore_item_btn_width">50dp</dimen>
+    <dimen name="datastore_item_progress_height_h">17dp</dimen>
+    <dimen name="datastore_item_progress_height">13dp</dimen>
+    <dimen name="datastore_item_btn_height">30dp</dimen>
+    <dimen name="datastore_item_margin_l_h">20dp</dimen>
+    <dimen name="datastore_item_margin_bt">10dp</dimen>
+    <dimen name="datastore_tv_margin">13dp</dimen>
+
+
+
+
+
+    <!-- DatastoreHelper -->
+    <dimen name="datastore_helper_title_size">15sp</dimen>
+    <dimen name="datastore_helper_msg_size">12sp</dimen>
+    <dimen name="datastore_helper_margin40">20dp</dimen>
+    <dimen name="datastore_helper_margin24">12dp</dimen>
+    <dimen name="datastore_helper_margin20">10dp</dimen>
+    <dimen name="datastore_helper_margin34">17dp</dimen>
+    <dimen name="datastore_helper_margin80">40dp</dimen>
+    <dimen name="datastore_helper_margin16">8dp</dimen>
+    <dimen name="datastore_helper_margin22">11dp</dimen>
+    <dimen name="datastore_helper_margin0">0dp</dimen>
+    <dimen name="datastore_helper_edit_height">45dp</dimen>
+    <dimen name="datastore_helper_btn_height">@dimen/datastore_helper_edit_height</dimen>
+
+    <!-- DatastoreActive -->
+    <dimen name="datastore_active_title_size">20sp</dimen>
+    <dimen name="datastore_active_info_size">12sp</dimen>
+    <dimen name="datastore_active_btn_height">45dp</dimen>
+    <dimen name="datastore_active_margin">10dp</dimen>
+    <dimen name="datastore_active_margin_btn_bottom">25dp</dimen>
+
+    <!-- DatastorePay -->
+
+    <!-- NaviBottom -->
+
+    <!-- RouteView -->
+    <dimen name="route_quick_navi_item_height">45dp</dimen>
+    <dimen name="route_quick_navi_item_height_padding">10dp</dimen>
+    <dimen name="route_quick_navi_item_text_size">15sp</dimen>
+    <dimen name="route_quick_navi_item_text_size_hint">12sp</dimen>
+    <dimen name="route_quick_navi_item_icon_padding">15dp</dimen>
+    <dimen name="route_landscape_right_width">245dp</dimen>
+
+    <!-- FavoritesViewer -->
+    <dimen name="favorites_item_content_height">67.5dp</dimen>
+    <dimen name="favorites_item_content_height_h">70dp</dimen>
+    <dimen name="favorites_item_menu_height">50dp</dimen>
+    <dimen name="favorites_synchronize_overrun_width">240dp</dimen>
+
+    <!-- NaviCenterViewer -->
+    <dimen name="navi_center_dialog_divider_margin">10dp</dimen>
+    <dimen name="navi_center_dialog_drawable_padding">5dp</dimen>
+    <dimen name="navi_center_dialog_item_width">45dp</dimen>
+    <dimen name="navi_center_dialog_text_size">15sp</dimen>
+    <!-- land -->
+
+
+    <!-- NaviCheckDialogViewer -->
+    <dimen name="layer_check_location_top_text">16sp</dimen>
+    <dimen name="layer_check_location_middle_text1">14sp</dimen>
+    <!-- land -->
+    <dimen name="layer_check_location_land_width">320dp</dimen>
+    <!-- DataStorageListViewer -->
+    <dimen name="data_storage_list_prompt">14sp</dimen>
+    <dimen name="data_storage_list_prompt_h">15sp</dimen>
+    <dimen name="data_storage_list_h">14sp</dimen>
+    <!-- EmulatorSpeedAdjustViewer -->
+
+    <!-- MapTmcDrawable -->
+    <dimen name="map_tmc_drawable_car_icon_height">12dp</dimen>
+    <dimen name="map_tmc_drawable_car_icon_width">12dp</dimen>
+    <dimen name="map_tmc_drawable_land_left_margin">4.5dp</dimen>
+    <dimen name="map_tmc_drawable_land_right_margin">4.5dp</dimen>
+    <dimen name="map_tmc_drawable_land_start_margin">5.5dp</dimen>
+    <dimen name="map_tmc_drawable_land_end_margin">5.5dp</dimen>
+
+    <!--NaviCenter-->
+    <!--ElectronTitleViewer-->
+    <dimen name="electron_lay_height">120dp</dimen>
+
+    <!--ElectronListViewer-->
+    <!--RoamingMapStyleViewer-->
+    <dimen name="roaming_style_view_height">81dp</dimen>
+    <dimen name="roaming_style_drawable_icon_width">69dp</dimen>
+    <dimen name="roaming_style_drawable_icon_height">49dp</dimen>
+    <dimen name="roaming_style_drawable_icon_width_land">69dp</dimen>
+    <dimen name="roaming_style_drawable_icon_height_land">49dp</dimen>
+    <dimen name="roaming_style_text_topmargin">7dp</dimen>
+    <dimen name="roaming_style_icon_checkbox_offset">3dp</dimen>
+    <dimen name="roaming_style_text_size_land">12sp</dimen>
+
+    <!--RoamingMapStyleViewer-->
+    <dimen name="illegal_panel_height">100dp</dimen>
+    <!--StarMapViewer-->
+
+    <dimen name="star_map_gps_time_top_margin">15dp</dimen>
+    <dimen name="star_map_compass_left_margin">33dp</dimen>
+    <dimen name="star_map_compass_left_margin_land">30dp</dimen>
+    <dimen name="star_map_compass_top_margin_land">20dp</dimen>
+    <dimen name="star_map_compass_width">140dp</dimen>
+    <dimen name="star_map_level_width">90dp</dimen>
+    <dimen name="star_map_level_ball_width">12dp</dimen>
+    <dimen name="star_map_title_gps_text_margin">15dp</dimen>
+    <dimen name="star_map_gps_status_text_size_land">20sp</dimen>
+    <dimen name="star_map_gps_icon_width">40dp</dimen>
+    <dimen name="star_map_gps_icon_height">40dp</dimen>
+    <dimen name="star_map_gps_icon_height_land">50dp</dimen>
+
+
+    <!--AdBannerViewer-->
+    <dimen name="map_activity_ad_width">270dp</dimen>
+    <dimen name="map_activity_ad_height">358dp</dimen>
+    <dimen name="banner_close_icon_width_height">27dp</dimen>
+    <dimen name="map_activity_ad_close_top_margin">152dp</dimen>
+    <dimen name="map_activity_ad_margin_top">144dp</dimen>
+    <dimen name="banner_page_index_layout_height">2dp</dimen>
+    <dimen name="banner_indicator_width">16dp</dimen>
+    <dimen name="banner_indicator_height">2dp</dimen>
+
+    <!--首页图层横屏尺寸-->
+    <dimen name="layers_panel_width_land">283dp</dimen>
+    <dimen name="layers_panel_height_land">241dp</dimen>
+    <dimen name="layers_panel_tools_height_land">67dp</dimen>
+
+    <!--手车一体化横屏状态相关尺寸-->
+    <dimen name="handcar_ico_width">53dp</dimen>
+    <dimen name="handcar_poi_select_width">107dp</dimen>
+
+    <!-- 横屏Title栏相关尺寸-->
+    <dimen name="land_title_item_divider">1dp</dimen>
+
+
+    <dimen name="handcar_route_choose_margin">145dp</dimen>
+
+    <dimen name="abc_text_size_subhead_material">16sp</dimen>
+    <dimen name="abc_text_size_caption_material">12sp</dimen>
+    <!-- 人工导航-->
+
+    <!--偏好选择横屏-->
+    <dimen name="handcar_avoid_pop_width">365dp</dimen>
+
+
+    <!--周边搜-->
+    <dimen name="nearby_search_func_text_size">20sp</dimen>
+    <dimen name="nearby_search_btn_width">80dp</dimen>
+    <dimen name="nearby_search_grid_icon_text_margin">5dp</dimen>
+
+    <!--导航标题栏横屏-->
+    <dimen name="handcar_navi_accross_expand_height">100dp</dimen>
+    <dimen name="handcar_navi_turnpic_margin_top">33dp</dimen>
+    <dimen name="title_width_h">300dp</dimen>
+    <dimen name="title_width_square">300dp</dimen>
+
+    <!--手车一体用户中心横屏-->
+    <dimen name="weather_text_size">13sp</dimen>
+
+    <!--手车一体模拟导航控制面板-->
+    <dimen name="emulator_width">117dp</dimen>
+    <dimen name="emulator_height">52dp</dimen>
+    <dimen name="dialog_bottom_landscape_width">360dp</dimen>
+    <dimen name="dialog_index_landscape_width">270dp</dimen>
+    <dimen name="dialog_setting_landscape_width">410dp</dimen>
+
+    <!--微信互联相关-->
+    <dimen name="wechat_qr_code_width">144dp</dimen>
+    <dimen name="wechat_qr_code_size">144dp</dimen>
+    <dimen name="wechat_about_width">140dp</dimen>
+    <dimen name="wechat_about_height">140dp</dimen>
+    <dimen name="wechat_about_land_width">105dp</dimen>
+
+
+    <!--新UI搜索详情列表相关-->
+    <!--竖屏-->
+    <dimen name="MARGIN_TITLE_UP_PORTRAIT">10dp</dimen>
+    <dimen name="MARGIN_FIRST_UP_PORTRAIT">5dp</dimen>
+    <dimen name="MARGIN_SECOND_UP_PORTRAIT">5dp</dimen>
+    <dimen name="MARGIN_BOTTOM_UP_PORTRAIT">10dp</dimen>
+    <dimen name="MARGIN_LEFT_PORTRAIT">15dp</dimen>
+    <dimen name="MARGIN_RIGHT_OUT_PORTRAIT">15dp</dimen>
+    <dimen name="MARGIN_GO_HERE">5dp</dimen>
+    <dimen name="TITLE_FONT_SIZE_PORTRAIT">18sp</dimen>
+    <dimen name="CONTENT_FONT_SIZE_PORTRAIT">14sp</dimen>
+    <dimen name="correct_item_width">360dp</dimen>
+    <dimen name="correct_item_height_h">54dp</dimen>
+    <!--横屏-->
+    <dimen name="TITLE_FONT_SIZE_LAND">17sp</dimen>
+    <dimen name="CONTENT_FONT_SIZE_LAND">13sp</dimen>
+    <!--到这去-->
+    <dimen name="GO_HERE_FONT_SIZE_PORTRAIT">12sp</dimen>
+
+
+    <!--设置面板相关-->
+    <dimen name="popup_panel_text_size">@dimen/F16</dimen>
+    <dimen name="land_space_popup_panel_text_size">@dimen/F2</dimen>
+    <dimen name="setting_page_item_height">@dimen/CT2</dimen>
+
+    <!--导航设置之偏好设置tab宽高-->
+    <dimen name="navi_set_margin_between_prefer_tab">10.5dp</dimen>
+    <dimen name="navi_set_item_height">50dp</dimen>
+    <!--导航之偏好设置tab宽高 横屏-->
+    <dimen name="navi_prefer_set_tab_width_h">127.5dp</dimen>
+    <dimen name="navi_prefer_set_tab_height_h">70dp</dimen>
+
+
+    <!--导航设置之间距-->
+    <dimen name="navi_set_margin_left">15dp</dimen>
+    <dimen name="navi_set_margin_top">15dp</dimen>
+
+
+    <!--主界面图标相关-->
+    <dimen name="index_icon_background_width_v">44dp</dimen>
+    <dimen name="index_icon_background_width_h">52dp</dimen>
+    <dimen name="index_icon_width_v">20dp</dimen>
+    <dimen name="index_icon_width_h">24dp</dimen>
+
+    <dimen name="index_icon_margin_left_v">10dp</dimen>
+    <dimen name="index_icon_margin_top_v">10dp</dimen>
+
+    <dimen name="index_icon_margin_top_h">7dp</dimen>
+
+    <!--dialog相关-->
+    <dimen name="dialog_width_center">270dp</dimen>
+    <dimen name="dialog_width_bottom_h">375dp</dimen>
+    <dimen name="dialog_min_width">270dp</dimen>
+
+    <!--横屏底部弹出框标题头字体大小-->
+    <dimen name="dialog_title_text_size_bottom_h">17sp</dimen>
+
+    <dimen name="dialog_mid_message_text_size_v">14sp</dimen>
+    <dimen name="dialog_mid_message_text_size_h">14sp</dimen>
+
+    <dimen name="dialog_button_item_height_v">40dp</dimen>
+
+    <dimen name="dialog_button_text_size_v">16sp</dimen>
+    <dimen name="dialog_button_text_size_h">16sp</dimen>
+
+
+    <dimen name="dialog_single_button_cancel_text_size_v">14sp</dimen>
+    <!--横屏底部弹出框单一按钮字体大小-->
+
+    <dimen name="dialog_single_button_cancel_text_size_h">14sp</dimen>
+
+
+    <dimen name="dialog_mid_message_view_margin_left_v">15dp</dimen>
+    <dimen name="dialog_mid_message_view_margin_right_v">15dp</dimen>
+    <!--有标题头时中间部分与上面的margin是20dp 没有标题头时是5dp-->
+    <dimen name="dialog_mid_message_view_margin_top_v">20dp</dimen>
+    <dimen name="dialog_mid_message_view_with_title_margin_top_v">5dp</dimen>
+    <dimen name="dialog_divided_line_margin_top_v">20dp</dimen>
+
+    <!--横竖屏居中背景圆角角度-->
+    <dimen name="dialog_bg_corner_radius_center">6dp</dimen>
+
+    <!--按钮-->
+    <dimen name="stroke_btn_stroke_width">1px</dimen>
+    <dimen name="stroke_btn_height_v">40dp</dimen>
+    <dimen name="stroke_btn_height_h">34dp</dimen>
+    <dimen name="stroke_btn_width_h">100dp</dimen>
+    <dimen name="stroke_btn_padding_left_v">30dp</dimen>
+    <dimen name="stroke_btn_padding_right_v">30dp</dimen>
+    <dimen name="capsule_btn_corner_radius">20dp</dimen>
+    <dimen name="stroke_btn_text_size">16sp</dimen>
+    <dimen name="btn_corner_radius">3dp</dimen>
+
+    <!-- ▼ 气泡面板详情页 ▼ -->
+    <dimen name="icon_car_height">18dp</dimen>
+    <dimen name="icon_feedback_height">14dp</dimen>
+    <dimen name="title_unit_margin_top_bottom">30dp</dimen>
+    <dimen name="title_unit_margin_left_right">15dp</dimen>
+    <dimen name="title_unit_margin_inner">5dp</dimen>
+    <dimen name="title_unit_margin_outer">10dp</dimen>
+    <dimen name="title_unit_height">44dp</dimen>
+    <dimen name="title_unit_title_margin_right">90dp</dimen>
+
+    <dimen name="bubble_panel_anchor_top">180dp</dimen>
+    <dimen name="index_page_go_here_icon_size">60dp</dimen>
+    <dimen name="index_page_go_here_icon_radius">30dp</dimen>
+    <dimen name="index_page_go_here_icon_bottom_margin">109dp</dimen>
+    <dimen name="index_page_go_here_icon_right_margin">15dp</dimen>
+    <dimen name="index_page_go_here_icon_text_margin">1dp</dimen>
+    <dimen name="index_page_go_here_text_size">10sp</dimen>
+    <dimen name="bubble_panel_bottom_height">44dp</dimen>
+    <dimen name="bubble_panel_collapsed_height">139dp</dimen>
+
+    <dimen name="unit_item_height">36dp</dimen>
+    <dimen name="unit_divider_height">7dp</dimen>
+    <dimen name="unit_item_margin_top">5dp</dimen>
+    <dimen name="unit_divider_level_height">1dp</dimen>
+    <dimen name="unit_feedback_item_height">44dp</dimen>
+    <dimen name="unit_feedback_icon_height">16dp</dimen>
+
+    <dimen name="unit_touch_slop">3dp</dimen>
+
+
+    <dimen name="unit_land_name_size_h">20sp</dimen>
+    <dimen name="unit_land_head_size_h">17sp</dimen>
+    <dimen name="unit_land_inner_size_h">13dp</dimen>
+    <dimen name="unit_land_phone_margint_right">14dp</dimen>
+
+    <dimen name="bubble_panel_land_height">360dp</dimen>
+
+
+    <!-- ▲ 气泡面板详情页 ▲ -->
+
+    <!--群组地图打点用户头像 Icon 的大小-->
+    <dimen name="map_user_icon_size">30dp</dimen>
+    <!--群组地图打点用户头像整体的高低-->
+    <dimen name="map_user_icon_outer_height">44dp</dimen>
+    <!--群组地图打点用户头像整体的宽度-->
+    <dimen name="map_user_icon_outer_width">36dp</dimen>
+    <!--群组导航引导页描述文本的最大宽度-->
+    <dimen name="group_navi_guide_text_max_width">223dp</dimen>
+
+
+    <!-- ▲ 地图上图标的大小 ▲ -->
+    <!--指北针和车速按钮尺寸：-->
+    <!--导航主界面时：整体尺寸116*116px，icon尺寸64*64px-->
+    <dimen name="map_compass_navigate_width">58dp</dimen>
+    <dimen name="map_compass_navigate_height">58dp</dimen>
+    <dimen name="map_compass_navigate_icon_width">32dp</dimen>
+    <dimen name="map_compass_navigate_icon_height">32dp</dimen>
+
+
+    <!--指北针和车速按钮尺寸：-->
+    <!--竖屏时：整体尺寸88*88px，icon尺寸48*48px-->
+    <dimen name="map_compass_common_width">44dp</dimen>
+    <dimen name="map_compass_common_height">44dp</dimen>
+    <dimen name="map_compass_common_icon_width">24dp</dimen>
+    <dimen name="map_compass_common_icon_height">24dp</dimen>
+
+
+    <!--指北针和车速按钮尺寸：横屏or方屏-->
+    <!--整体尺寸104*104px，icon尺寸58*58px-->
+    <dimen name="map_compass_land_width">52dp</dimen>
+    <dimen name="map_compass_land_height">52dp</dimen>
+    <dimen name="map_compass_land_icon_width">29dp</dimen>
+    <dimen name="map_compass_land_icon_height">29dp</dimen>
+
+
+    <!--竖屏且非导航主界面时：整体尺寸88*88px，icon尺寸40*40px-->
+    <dimen name="map_common_width">44dp</dimen>
+    <dimen name="map_common_height">44dp</dimen>
+    <dimen name="map_common_icon_width">20dp</dimen>
+    <dimen name="map_common_icon_height">20dp</dimen>
+
+    <!--整体尺寸104*104px，icon尺寸48*48px-->
+    <dimen name="map_common_width_land">52dp</dimen>
+    <dimen name="map_common_height_land">52dp</dimen>
+    <dimen name="map_common_icon_width_land">24dp</dimen>
+    <dimen name="map_common_icon_height_land">24dp</dimen>
+
+    <!--主界面底部导航按钮-->
+    <dimen name="index_viewer_bottom_navi_height">43.5dp</dimen>
+    <dimen name="index_viewer_drawable_padding">5dp</dimen>
+    <dimen name="index_viewer_around_padding_left">33.5dp</dimen>
+    <dimen name="index_viewer_my_padding_left">93.5dp</dimen>
+    <dimen name="index_viewer_navi_icon_size">90dp</dimen>
+    <dimen name="index_viewer_navi_icon_margin_bottom">7dp</dimen>
+    <dimen name="index_viewer_red_dot_size">8dp</dimen>
+    <dimen name="index_viewer_red_dot_margin_bottom">29dp</dimen>
+    <dimen name="index_viewer_red_dot_margin_right">21dp</dimen>
+
+    <dimen name="index_viewer_raised_width">100dp</dimen>
+    <dimen name="index_viewer_raised_height">16dp</dimen>
+
+    <!--图标之间的间距-->
+    <!--* 与其它带阴影元素：-->
+    <!--/**-->
+    <!--* 通用的 Viewer 父布局的边-->
+    <!--* 竖屏时：4px-->
+    <!--* 否则：14px-->
+    <dimen name="margin_map_common">2dp</dimen>
+    <dimen name="margin_map_common_land">7dp</dimen>
+
+    <!--* 与屏幕边界或不带阴影元素：-->
+    <!--* 竖屏时：12px-->
+    <!--* 否则：22px-->
+    <!--*/-->
+    <dimen name="margin_slid_map_common">6dp</dimen>
+    <dimen name="margin_slid_map_common_land">11dp</dimen>
+
+    <!-- ▼ 气泡面板用到的胶囊按钮相关尺寸 ▼ -->
+    <dimen name="land_capsulae_container_height">60dp</dimen>
+    <dimen name="land_capsulae_height">34dp</dimen>
+    <dimen name="land_capsulae_margin">12dp</dimen>
+    <dimen name="land_capsulae_inner_margin">13dp</dimen>
+
+    <dimen name="land_capsulae_width">92dp</dimen>
+    <dimen name="land_capsulae_single_width">100dp</dimen>
+    <!-- ▲ 气泡面板用到的胶囊按钮相关尺寸 ▲ -->
+
+    <!--statusBar-->
+    <dimen name="map_status_bar_item_width">20dp</dimen>
+    <dimen name="map_status_bar_item_height">20dp</dimen>
+    <dimen name="map_status_bar_expand_container_height">200dp</dimen>
+    <dimen name="map_status_bar_expand_margin_left">15dp</dimen>
+    <dimen name="map_status_bar_expand_item_margin_left">15dp</dimen>
+    <dimen name="map_status_bar_expand_margin_right">10dp</dimen>
+    <dimen name="map_status_bar_expand_item_height">50dp</dimen>
+    <dimen name="map_status_bar_height">52dp</dimen>
+
+    <!--加载动画-->
+    <dimen name="loading_animation_parent_width">160dp</dimen>
+    <dimen name="loading_animation_parent_height">80dp</dimen>
+    <dimen name="loading_animation_height">22dp</dimen>
+    <dimen name="loading_animation_width">22dp</dimen>
+    <dimen name="loading_animation_stroke_width">2dp</dimen>
+    <dimen name="loading_animation_corner_radius">6dp</dimen>
+    <dimen name="loading_animation_text_margin_left">39dp</dimen>
+    <dimen name="loading_animation_text_margin_right">39dp</dimen>
+
+    <!--小地图-->
+    <dimen name="map_small_width">100dp</dimen>
+    <dimen name="map_small_height">100dp</dimen>
+    <dimen name="map_small_width_land">100dp</dimen>
+    <dimen name="map_small_height_land">100dp</dimen>
+
+    <!--数据同步-->
+    <dimen name="can_send_data_describe_height">28dp</dimen>
+    <dimen name="send_data_btn_width">70dp</dimen>
+    <dimen name="send_data_btn_height">28dp</dimen>
+    <dimen name="no_data_icon_margin_top">43dp</dimen>
+    <dimen name="data_transport_car_update_style_item_width">190dp</dimen>
+    <dimen name="data_transport_car_update_style_item_height">200dp</dimen>
+    <!--更新方式条目 数据线更新 USB更新-->
+    <dimen name="data_transport_car_update_style_item_margin_top">42dp</dimen>
+    <dimen name="data_transport_car_update_style_item_bg_corner">4dp</dimen>
+    <dimen name="data_transport_car_text_size">13sp</dimen>
+    <dimen name="data_transport_car_update_style_image_margin_top">25dp</dimen>
+    <dimen name="date_transport_car_update_style_title_height">34dp</dimen>
+    <dimen name="date_transport_car_update_style_title_size">15sp</dimen>
+    <dimen name="data_transfer_car_help_margin_left">20dp</dimen>
+    <dimen name="data_transport_car_wifi_link_pic_width">81dp</dimen>
+    <dimen name="data_transport_car_wifi_link_pic_parent_width">162dp</dimen>
+    <dimen name="data_transport_car_wifi_link_pic_parent_margin_left">36dp</dimen>
+    <dimen name="data_transport_car_wifi_link_pic_parent_margin_top">61dp</dimen>
+    <dimen name="data_transport_car_wifi_link_pic_height">115dp</dimen>
+    <dimen name="data_transport_car_link_status_text_margin_top">25dp</dimen>
+    <dimen name="data_transport_car_cur_link_device_text_margin_left">107dp</dimen>
+    <dimen name="data_transport_car_cur_link_device_text_margin_top">5dp</dimen>
+    <dimen name="data_transport_car_link_status_pic_width">76dp</dimen>
+
+    <dimen name="data_transport_tip_number_width">18dp</dimen>
+
+    <dimen name="data_transport_usb_style_help_item_width">200dp</dimen>
+    <dimen name="data_transport_usb_style_help_item_height">110dp</dimen>
+    <dimen name="data_transport_usb_style_help_item_margin_top">20dp</dimen>
+    <dimen name="data_transport_progressbar_width">180dp</dimen>
+    <dimen name="data_transport_progressbar_height">7dp</dimen>
+    <dimen name="data_transport_progressbar_radius">12dp</dimen>
+    <dimen name="data_transport_progress_pic_width">160dp</dimen>
+    <dimen name="data_transport_progress_pic_height">40dp</dimen>
+    <!--途经点-->
+    <dimen name="pass_point_item_height">44dp</dimen>
+    <dimen name="pass_point_item_text_size">16sp</dimen>
+    <dimen name="pass_point_item_text_size_land">14sp</dimen>
+    <dimen name="pass_point_dialog_width">300dp</dimen>
+    <dimen name="pass_point_dialog_cancel_item_height">31dp</dimen>
+    <dimen name="pass_point_dialog_cancel_item_height_land">40dp</dimen>
+
+    <!--积分领取对话框-->
+    <dimen name="get_score_dialog_width">264dp</dimen>
+    <dimen name="get_score_dialog_height">364.5dp</dimen>
+    <dimen name="get_score_dialog_title_margin_top">170dp</dimen>
+    <dimen name="get_score_dialog_sure_btn_width">157dp</dimen>
+    <dimen name="get_score_dialog_sure_btn_height">35dp</dimen>
+    <dimen name="get_score_dialog_sure_btn_margin_top">7dp</dimen>
+
+    <dimen name="get_score_dialog_width_h">190dp</dimen>
+    <dimen name="get_score_dialog_height_h">263.5dp</dimen>
+    <dimen name="get_score_dialog_title_margin_top_h">120dp</dimen>
+    <dimen name="get_score_dialog_sure_btn_width_h">113dp</dimen>
+    <dimen name="get_score_dialog_sure_btn_height_h">25dp</dimen>
+
+
+    <!--路况-->
+    <dimen name="map_road_traffic_portrait_height">300dp</dimen>
+    <dimen name="map_road_traffic_land_height">180dp</dimen>
+    <dimen name="map_road_traffic_square_height">210dp</dimen>
+
+    <!--HUD-->
+    <dimen name="hud_turn_icon_width">130dp</dimen>
+    <dimen name="hud_turn_icon_height">130dp</dimen>
+
+    <!--步行导航方向圈-->
+    <dimen name="direction_circle_radius">43.5dp</dimen>
+    <dimen name="direction_circle_green_dot_radius">4dp</dimen>
+    <dimen name="direction_circle_yaw_arg_stroke_width">4dp</dimen>
+
+    <!--分享-->
+    <dimen name="share_panel_padding_left">15dp</dimen>
+    <dimen name="share_panel_padding_right">15dp</dimen>
+    <dimen name="share_panel_horizontal_space">30dp</dimen>
+    <dimen name="share_panel_column_width">36dp</dimen>
+
+    <!--高速路牌-->
+    <dimen name="high_way_background_round">@dimen/OM5</dimen>
+
+    <!--Toast-->
+    <dimen name="custom_toast_text_maxwidth">295dp</dimen>
+    <dimen name="custom_toast_text_paddingLR">15dp</dimen>
+    <dimen name="custom_toast_text_paddingTB">10dp</dimen>
+    <dimen name="item_divider_h_height">1px</dimen>
+
+    <!--横屏最大屏幕的高度, 为适配方屏调整, 用此高度替代 match-parent-->
+    <dimen name="land_full_screen_height">360dp</dimen>
+
+    <!--高速路牌标签的配置-->
+    <dimen name="high_way_bg_type_height">17dp</dimen>
+    <dimen name="high_way_bg_type_radius">3dp</dimen>
+    <dimen name="high_way_bg_type_stroke_width">1dp</dimen>
+    <dimen name="high_way_type_line_height">4dp</dimen>
+
+    <dimen name="smart_destination_portrait_height">43dp</dimen>
+    <dimen name="smart_destination_landscape_height">52dp</dimen>
+
+
+</resources>
