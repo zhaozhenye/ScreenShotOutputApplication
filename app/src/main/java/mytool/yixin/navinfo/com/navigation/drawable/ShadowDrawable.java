@@ -1,4 +1,4 @@
-package mytool.yixin.navinfo.com.navigation.view;
+package mytool.yixin.navinfo.com.navigation.drawable;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

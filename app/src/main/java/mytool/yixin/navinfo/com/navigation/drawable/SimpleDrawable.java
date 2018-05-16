@@ -1,4 +1,4 @@
-package mytool.yixin.navinfo.com.navigation.view;
+package mytool.yixin.navinfo.com.navigation.drawable;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;

@@ -7,7 +7,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,6 +14,7 @@ import java.util.HashMap;
 
 import mytool.yixin.navinfo.com.navigation.R;
 import mytool.yixin.navinfo.com.navigation.controller.RoadLineController;
+import mytool.yixin.navinfo.com.navigation.drawable.SimpleDrawable;
 import mytool.yixin.navinfo.com.navigation.log.Log;
 import mytool.yixin.navinfo.com.navigation.log.LogTag;
 import mytool.yixin.navinfo.com.navigation.log.LogUtil;
@@ -31,14 +31,17 @@ import mytool.yixin.navinfo.com.navigation.utils.Utils;
  */
 
 
-public class ArLaneLineView extends View {
+public class ArLaneLineView extends BaseView {
+    private static final String TAG = ArLaneLineView.class.getSimpleName();
+
     public ArLaneLineView(Context context) {
         super(context);
-        init();
+
     }
 
     public ArLaneLineView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public ArLaneLineView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -61,13 +64,10 @@ public class ArLaneLineView extends View {
      */
     private boolean isArLaneLineShow;
 
-    /**
-     * 是否是展开的widget
-     */
-    private boolean isExpandWidet;
 
 
-    private void init() {
+
+    private void initView() {
         if (isExpandWidet) {
             mArLaneLineDrawable = new ArLaneLineDrawable();
             Utils.setViewBackGroundDrawable(this, mArLaneLineDrawable);
@@ -78,11 +78,14 @@ public class ArLaneLineView extends View {
         }
     }
 
+
     /**
      * 获得车道线变化的通知
      */
     public void notifyLaneLineChange() {
         boolean isShow = roadLineController.isShowRoadLine();
+        Log.d(TAG,"isShow-->"+isShow);
+
         // 日志
         if (Log.isLoggable(LogTag.LANE, Log.INFO)) {
             StringBuilder sb = new StringBuilder().append(" -->> ").append(", isShow = ").append(isShow);
@@ -95,15 +98,15 @@ public class ArLaneLineView extends View {
 //        if (contentView == null) {
 //            return;
 //        }
-        if (isShow) {
-            isArLaneLineShow = true;
-            //获取车道线信息
-            show(true);
-            setArLaneLineList();
-        } else {
-            isArLaneLineShow = false;
-            show(false);
-        }
+        isArLaneLineShow = true;
+        //获取车道线信息
+        show(true);
+        setArLaneLineList();
+//        if (isShow) {
+//        } else {
+//            isArLaneLineShow = false;
+//            show(false);
+//        }
 
 //        if (NaviStatus.NAVI_WALK.isActive() || !NaviStatus.TRACK_NAVI.isActive() || !isShow) {
 //            isArLaneLineShow = false;
@@ -130,11 +133,11 @@ public class ArLaneLineView extends View {
                 mLandArLaneLineDrawable.setLaneTypes(laneTypes, roadLineController.getScale());
 
             }
-            ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) getLayoutParams();
-            lp.width = roadLineRealWidth;
-            lp.validate();
-            setLayoutParams(lp);
-            getBackground().invalidateSelf();
+//            ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) getLayoutParams();
+//            lp.width = roadLineRealWidth;
+//            lp.validate();
+//            setLayoutParams(lp);
+            mArLaneLineDrawable.invalidateSelf();
         } else {
             setVisibility(View.GONE);
         }

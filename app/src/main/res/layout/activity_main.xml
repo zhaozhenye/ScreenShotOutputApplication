@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="10dp"
     >
@@ -11,7 +12,23 @@
     <mytool.yixin.navinfo.com.navigation.view.NaviTitleView
         android:id="@+id/naviTitleView"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="200dp"/>
+    <mytool.yixin.navinfo.com.navigation.view.MapTmcView
+        android:id="@+id/mapTmcView"
+        android:layout_width="@dimen/space_20"
+        android:layout_height="@dimen/map_road_traffic_portrait_height"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        tools:background="#ff00"
+        android:visibility="gone"
+        />
+    <mytool.yixin.navinfo.com.navigation.view.ArLaneLineView
+        android:id="@+id/roadLineView"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        tools:background="#ff00"
+        />
 
     <TextView
         android:layout_width="match_parent"

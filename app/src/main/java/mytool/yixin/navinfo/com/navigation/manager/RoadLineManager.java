@@ -89,7 +89,7 @@ public class RoadLineManager {
 //        });
     }
 
-    private LaneType[] parser(LaneModel laneModel) {
+    public LaneType[] parser(LaneModel laneModel) {
         // 日志
         if (Log.isLoggable(LogTag.LANE, Log.DEBUG)) {
             String msg = " -->> parser old : laneModel = " + laneModel;

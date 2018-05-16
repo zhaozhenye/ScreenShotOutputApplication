@@ -1,7 +1,6 @@
 package mytool.yixin.navinfo.com.navigation.controller;
 
 import mytool.yixin.navinfo.com.navigation.R;
-import mytool.yixin.navinfo.com.navigation.listener.Listener;
 import mytool.yixin.navinfo.com.navigation.manager.RoadLineManager;
 import mytool.yixin.navinfo.com.navigation.utils.LayoutUtils;
 
@@ -16,27 +15,7 @@ import mytool.yixin.navinfo.com.navigation.utils.LayoutUtils;
 public class RoadLineController {
 
 
-    /**
-     * 监听车道线改变的监听器
-     */
-    private final Listener.GenericListener<RoadLineManager.LaneInfo> laneInfoGenericListener = new Listener.GenericListener<RoadLineManager.LaneInfo>() {
-        @Override
-        public void onEvent(RoadLineManager.LaneInfo eventInfo) {
-            laneTypes = eventInfo.getLaneTypes();
-            switch (eventInfo.getEvent()) {
-                case GONE:
-                    mShowRoadLine = mLandShowRoadLine = mSquareShowRoadLine = false;
-                    break;
-                case VISIBILITY:
-                    mShowRoadLine = mLandShowRoadLine= mSquareShowRoadLine = true;
 
-                    break;
-                default:
-                    break;
-            }
-            update();
-        }
-    };
 
 
 
@@ -82,6 +61,10 @@ public class RoadLineController {
     private boolean mSquareShowTime     = true;
     private boolean mSquareShowRoadLine;
 
+    public void setLaneTypes(RoadLineManager.LaneType[] laneTypes) {
+        this.laneTypes = laneTypes;
+    }
+
     /**
      * 获取最新的车道线信息
      */
@@ -117,11 +100,12 @@ public class RoadLineController {
         mLandInitWidth = mLandMaxWidth - compassWith - leftOffset - timePanel - rightOffset;
         mLandExpandInitWidth = mLandExpandMaxWidth - compassWith - leftOffset - timePanel - rightOffset;
         mSquareInitWidth = mSquareMaxWidth  - compassWith - leftOffset - timePanel - rightOffset;
-        RoadLineManager.getInstance().addLaneListener(laneInfoGenericListener);
+//        RoadLineManager.getInstance().addLaneListener(laneInfoGenericListener);
 
     }
 
-    private void update() {
+    public void update() {
+        laneTypes =getLaneTypes();
         //calculate
         calculateRoadLineWidth();
         //change flag
@@ -231,10 +215,12 @@ public class RoadLineController {
     }
 
     public boolean isShowRoadLine() {
-        if(LayoutUtils.isSquare()){
-            return mSquareShowRoadLine;
-        }
-        return LayoutUtils.isNotPortrait()? (mLandShowRoadLine):mShowRoadLine;
+
+        return mLandShowRoadLine;
+    }
+
+    public void setmShowRoadLine(boolean mShowRoadLine) {
+        this.mShowRoadLine = mShowRoadLine;
     }
 
     public double getScale() {

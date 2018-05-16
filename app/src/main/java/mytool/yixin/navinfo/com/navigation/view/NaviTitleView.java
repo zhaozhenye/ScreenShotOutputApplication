@@ -15,7 +15,6 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.view.View;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +24,7 @@ import mytool.yixin.navinfo.com.navigation.bean.MNaviElements;
 import mytool.yixin.navinfo.com.navigation.bean.NaviDataChangeEventInfo;
 import mytool.yixin.navinfo.com.navigation.bean.NaviType;
 import mytool.yixin.navinfo.com.navigation.controller.NaviController;
+import mytool.yixin.navinfo.com.navigation.drawable.ShadowDrawable;
 import mytool.yixin.navinfo.com.navigation.log.Log;
 import mytool.yixin.navinfo.com.navigation.log.LogTag;
 import mytool.yixin.navinfo.com.navigation.utils.GlobalUtil;
@@ -39,17 +39,14 @@ import mytool.yixin.navinfo.com.navigation.utils.Utils;
  */
 
 
-public class NaviTitleView extends View {
+public class NaviTitleView extends BaseView {
 
 
     /**
      * 资源对象缓存
      */
     private Resources res = null;
-    /**
-     * 当前为横屏还是竖屏 true为横屏模式
-     */
-    private boolean isLandscape = false;
+
 
     private static final String YAN = "沿";
     private static final String AFTER = "后";
@@ -251,7 +248,7 @@ public class NaviTitleView extends View {
 
         private void drawBackGround(Canvas canvas) {
             int color = portBgColor;
-            if (isLandscape) {
+            if (isExpandWidet) {
                 color = landBgColor;
             }
             canvas.drawColor(color);
@@ -270,7 +267,7 @@ public class NaviTitleView extends View {
 
 
         private void initData() {
-            if (isLandscape) {
+            if (isExpandWidet) {
                 mTurnIconLandWidth = LayoutUtils.getPxByDimens(R.dimen.navigate_title_turn_width_land);
                 mTurnIconLandHeight = LayoutUtils.getPxByDimens(R.dimen.navigate_title_turn_height_land);
                 mTurnLandTopOffset = LayoutUtils.getPxByDimens(R.dimen.navigate_title_turn_top_margin_land);
@@ -362,7 +359,7 @@ public class NaviTitleView extends View {
 
             switch (naviController.getType()) {
                 case NO_NEXT_ROAD:
-                    if (isLandscape) {
+                    if (isExpandWidet) {
                         drawRouteLandWithNoNextRoad(canvas);
                     } else {
                         drawRoutePortraitWithNoNextRoad(canvas);
@@ -370,7 +367,7 @@ public class NaviTitleView extends View {
 
                     break;
                 case NEXT_EQUALS_CURRENT:
-                    if (isLandscape) {
+                    if (isExpandWidet) {
                         drawRouteLandWithNextEqualsCurrent(canvas);
                     } else {
                         drawRoutePortraitWithNextEqualsCurrent(canvas);
@@ -383,7 +380,7 @@ public class NaviTitleView extends View {
                 case NEXT_HAS_EXIT:
                 case FORMAL_NEXT:
                 default:
-                    if (isLandscape) {
+                    if (isExpandWidet) {
                         drawLandRouteInformation(canvas);
                     } else {
                         drawPortraitRouteInformation(canvas);
@@ -394,7 +391,7 @@ public class NaviTitleView extends View {
         }
 
         private void updateLandRoutePaint() {
-            if (isLandscape) {
+            if (isExpandWidet) {
                 mDistancePaint.setTextSize(LayoutUtils.getPxByDimens(R.dimen.F11));
                 mDistanceTextPaint.setTextSize(LayoutUtils.getPxByDimens(R.dimen.F4));
                 mRoadPaint.setTextSize(LayoutUtils.getPxByDimens(R.dimen.F13));
@@ -426,7 +423,7 @@ public class NaviTitleView extends View {
             String unite = distanceText.substring(end, distanceText.length());
 
 
-//            if (isLandscape && mExpandViewShow) {
+//            if (isExpandWidet && mExpandViewShow) {
 //
 //                int numberWidth = getTextWidth(mDistancePaint, numberDistance);
 //                int yanWidth = getTextWidth(mDistanceTextPaint, YAN);
@@ -578,7 +575,7 @@ public class NaviTitleView extends View {
             //沿路行驶
             String text = naviController.getType().getKey();
             int x, y;
-//            if (isLandscape && mExpandViewShow) {
+//            if (isExpandWidet && mExpandViewShow) {
 //                x = mLandLeftMargin;
 //                y = mBound.height() / 2 + LayoutUtils.distanceOfBaselineAndCenterY(mDistanceTextPaint);
 //                canvas.drawText(text, x, y, mDistanceTextPaint);
@@ -706,7 +703,7 @@ public class NaviTitleView extends View {
             String text = unite + "后" + currentType.getKey();
 
 
-//            if (isLandscape && mExpandViewShow) {
+//            if (isExpandWidet && mExpandViewShow) {
 //
 //                int numberWidth = getTextWidth(mDistancePaint, numberDistance);
 //                int numberHeight = LayoutUtils.textHeight(mDistancePaint);
@@ -790,7 +787,7 @@ public class NaviTitleView extends View {
         }
 
         private void updateRoutePaint() {
-            if (isLandscape) {
+            if (isExpandWidet) {
                 updateLandRoutePaint();
             } else {
                 updatePortraitRoutePaint();

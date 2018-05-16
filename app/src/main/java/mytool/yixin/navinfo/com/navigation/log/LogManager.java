@@ -133,7 +133,7 @@ public class LogManager {
             // System.out.println("Tag:" + tag.getTagName() + "    logRa:" +
             // logRA+ "   loggable:true"+ (null != logRA ?
             // logRA.getAction().isLoggable() : false));
-            return (null != logRA ? logRA.getAction().isLoggable() : false);
+            return true;
         } else {
             return false;
         }

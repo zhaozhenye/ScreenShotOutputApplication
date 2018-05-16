@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import mytool.yixin.navinfo.com.navigation.bean.NaviDataChangeEventInfo;
 import mytool.yixin.navinfo.com.navigation.bean.NaviType;
+import mytool.yixin.navinfo.com.navigation.bean.TmcSections;
 
 /**
  * $desc$
@@ -32,6 +33,16 @@ public class NaviController {
 
     public void setNaviDataInfo(NaviDataChangeEventInfo naviDataInfo) {
         this.naviDataInfo = naviDataInfo;
+    }
+
+    private TmcSections tmcSections;
+
+    public TmcSections getTmcSections() {
+        return tmcSections;
+    }
+
+    public void setTmcSections(TmcSections tmcSections) {
+        this.tmcSections = tmcSections;
     }
 
     /**

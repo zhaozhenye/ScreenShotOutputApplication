@@ -25,6 +25,8 @@ public class NaviDataChangeEventInfo {
      * cameraDistance : 300m
      * currSpeed : 80km/h
      * percentToCurrPoint : 18
+     * totalDistance
+     * distanceToEnd
      */
 
     private String name;
@@ -40,6 +42,24 @@ public class NaviDataChangeEventInfo {
     private String cameraDistance;
     private String currSpeed;
     private double percentToCurrPoint;
+    private int totalDistance;
+    private int distanceToEnd;
+
+    public int getTotalDistance() {
+        return totalDistance;
+    }
+
+    public void setTotalDistance(int totalDistance) {
+        this.totalDistance = totalDistance;
+    }
+
+    public int getDistanceToEnd() {
+        return distanceToEnd;
+    }
+
+    public void setDistanceToEnd(int distanceToEnd) {
+        this.distanceToEnd = distanceToEnd;
+    }
 
     public String getName() {
         return name;
