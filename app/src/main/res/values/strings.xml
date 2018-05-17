@@ -473,7 +473,6 @@
     <string name="datastore_noeyes">"电子眼下载完成，才能正常使用离线导航播报"</string>
 
 
-
     <string name="datastore_download_list_tip">您还没有下载数据，\n请到城市列表界面选择数据进行下载</string>
     <string name="datastore_city_list_tip">使用离线导航功能，需下载基础数据及省市数据</string>
 
@@ -862,7 +861,6 @@
     <string name="share_platform_car">车机</string>
 
 
-
     <string name="along_search_tip">正在查询...</string>
     <string name="along_search_no_net">请检查网络连接</string>
     <string name="along_search_no_result">未找到合适结果</string>
@@ -878,4 +876,5 @@
     <string name="current_is_page">当前第%d页</string>
     <string name="no_response">未找到搜索结果</string>
     <string name="no_more">没有更多内容</string>
+    <string name="title_activity_one_piexl">OnePiexlActivity</string>
 </resources>

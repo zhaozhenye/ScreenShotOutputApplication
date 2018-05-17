@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,12 +16,16 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +42,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -96,42 +102,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NaviTitleView naviTitleView;
     private MapTmcView mapTmcView;
     ArLaneLineView laneLineView;
+    private RelativeLayout naviBeforeLay;
+    private ConstraintLayout naviIngLay;
+    private ImageView imgGoHome;
+    private ImageView imgGoCompany;
+    private ImageView imgMapbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GlobalUtil.setMainActivity(this);
-        setContentView(R.layout.activity_main);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_main_copy);
         initView();
         init();
 
     }
 
     private void initView() {
+        naviBeforeLay = findViewById(R.id.id_navigate_befor);
+        naviIngLay = findViewById(R.id.id_navigate_ing);
+
+        imgMapbar = (ImageView) findViewById(R.id.image_mapbar);
+        imgGoHome = (ImageView) findViewById(R.id.image_go_home);
+        imgGoCompany = (ImageView) findViewById(R.id.image_go_company);
+        imgMapbar.setOnClickListener(this);
+        imgGoHome.setOnClickListener(this);
+        imgGoCompany.setOnClickListener(this);
+
+
         naviTitleView = findViewById(R.id.naviTitleView);
         mapTmcView = findViewById(R.id.mapTmcView);
         laneLineView = findViewById(R.id.roadLineView);
         btnBindService = findViewById(R.id.btn_bind_service);
         btnUnbindService = findViewById(R.id.btn_unbind_service);
         btnApp = findViewById(R.id.btn_app);
-        btnApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("wedrive.navigation:"));
-//
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format("nav:%s,%f,%f", "天安门", 116.397399, 39.908870)));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                ArrayList<String> viaPois = new ArrayList<>(3);
-                viaPois.add(String.format("%s,%f,%f", "复兴门", 116.3565444946, 39.9071685451));
-                viaPois.add(String.format("%s,%f,%f", "王府井", 116.4115619659, 39.9080244523));
-                viaPois.add(String.format("%s,%f,%f", "前门", 116.3979578018, 39.8999587488));
-                intent.putStringArrayListExtra("viaPois", viaPois);
-                intent.setComponent(new ComponentName("com.mapbar.android.mapbarmap", "com.mapbar.android.MainActivity"));
-                startActivity(intent);
-            }
-        });
+        btnApp.setOnClickListener(this);
+        imageView = (ImageView) findViewById(R.id.image_view);
         textPath = findViewById(R.id.text_path);
 
         btnBindService.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +183,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String EXTRA_SHOW_ROAD_LINE = "com.wedrive.extra.SHOW_ROAD_LINE";
 
 
-
     NaviController naviController = NaviController.getInstance();
     RoadLineManager roadLineManager = RoadLineManager.getInstance();
 
@@ -195,13 +203,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         iFilter3.addAction(ACTION_SEND_ROAD_LINE_DATA);
         registerReceiver(roadLineDataReceiver, iFilter3);
 
+       //注册监听屏幕的广播
+        OnePixelReceiver        mOnepxReceiver = new OnePixelReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.SCREEN_OFF");
+        intentFilter.addAction("android.intent.action.SCREEN_ON");
+        intentFilter.addAction("android.intent.action.USER_PRESENT");
+        registerReceiver(mOnepxReceiver, intentFilter);
+
+
     }
 
+
+    /**
+     * Created by Administrator on 2017/7/10.
+     * 监听屏幕状态的广播
+     */
+    public class OnePixelReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {    //屏幕关闭启动1像素Activity
+                Intent it = new Intent(context, OnePiexlActivity.class);
+                it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(it);
+            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {   //屏幕打开 结束1像素
+                context.sendBroadcast(new Intent("finish"));
+                Intent main = new Intent(Intent.ACTION_MAIN);
+                main.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                main.addCategory(Intent.CATEGORY_HOME);
+                context.startActivity(main);
+            }
+        }
+    }
 
 
     BroadcastReceiver naviDataReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            System.out.println("接收到 naviData的广播");
             String action = intent.getAction();
             if (action.equalsIgnoreCase(ACTION_SEND_NAVI_DATA)) {
                 Bundle extras = intent.getExtras();
@@ -214,13 +253,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String method = commandJson.optString("method");
                     JSONObject extDataJson = commandJson.optJSONObject("extData");
                     if (extDataJson != null) {
+                        showNaviIng(true);
                         System.out.println(extDataJson.toString());
                         NaviDataChangeEventInfo naviDataChangeEventInfo = wrapData(extDataJson);
                         naviController.setNaviDataInfo(naviDataChangeEventInfo);
                         naviTitleView.update();
                         mapTmcView.updateUI();
                     } else {
-                        naviTitleView.setVisibility(View.GONE);
+                        showNaviIng(false);
                         Toast.makeText(MainActivity.this, "恭喜到达目的地", Toast.LENGTH_SHORT).show();
                     }
 
@@ -233,6 +273,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     };
+
+    private void showNaviIng(boolean show) {
+        if (show) {
+            naviBeforeLay.setVisibility(View.GONE);
+            naviIngLay.setVisibility(View.VISIBLE);
+        } else {
+            naviBeforeLay.setVisibility(View.VISIBLE);
+            naviIngLay.setVisibility(View.GONE);
+        }
+
+    }
 
 
     BroadcastReceiver roadLineDataReceiver = new BroadcastReceiver() {
@@ -651,7 +702,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //建立连接
             case R.id.connect:
                 mThreadPool.execute(connectThread);
-
                 break;
             //断开连接
             case R.id.disconnect:
@@ -659,16 +709,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //发送消息给服务器
             case R.id.start_screen_shot:
-
                 mThreadPool.execute(sendMessageThread);
                 break;
             //接收消息
             case R.id.btn_receive_message:
                 mThreadPool.execute(receiveMessageThread);
+                break;
+            //跳转到导航应用
+            case R.id.image_mapbar:
 
+                break;
+            //回家
+            case R.id.image_go_home:
+                startNaviApp();
+                break;
+            //回公司
+            case R.id.image_go_company:
+                startNaviApp();
+                break;
+            //跳转到导航
+            case R.id.btn_app:
+                startNaviDemoApp();
                 break;
             default:
                 break;
+        }
+    }
+
+
+
+
+    private void startNaviApp() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format("nav:%s,%f,%f", "天安门", 116.397399, 39.908870)));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ArrayList<String> viaPois = new ArrayList<>(3);
+        viaPois.add(String.format("%s,%f,%f", "复兴门", 116.3565444946, 39.9071685451));
+        viaPois.add(String.format("%s,%f,%f", "王府井", 116.4115619659, 39.9080244523));
+        viaPois.add(String.format("%s,%f,%f", "前门", 116.3979578018, 39.8999587488));
+        intent.putStringArrayListExtra("viaPois", viaPois);
+        intent.setComponent(new ComponentName("com.mapbar.android.mapbarmap", "com.mapbar.android.MainActivity"));
+        startActivity(intent);
+    }
+
+    private void startNaviDemoApp() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        ComponentName componentName = new ComponentName("com.mapbar.basedemo", "com.mapbar.basedemo.NaviActivity");
+        intent.setComponent(componentName);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+
+    private void getPackageList() {
+        List<ApplicationInfo> infoList = getPackageManager().getInstalledApplications(0);
+        for (ApplicationInfo info : infoList) {
+            String packageName = info.packageName;
+            System.out.println(packageName);
         }
     }
 
@@ -702,7 +803,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
     }
-
 
     @Override
     public void onDestroy() {

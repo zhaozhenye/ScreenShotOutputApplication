@@ -12,7 +12,6 @@
     <mytool.yixin.navinfo.com.navigation.view.NaviTitleView
         android:id="@+id/naviTitleView"
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="200dp"/>
     <mytool.yixin.navinfo.com.navigation.view.MapTmcView
         android:id="@+id/mapTmcView"

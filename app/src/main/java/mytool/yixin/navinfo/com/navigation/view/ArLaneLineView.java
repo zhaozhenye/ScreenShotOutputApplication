@@ -7,6 +7,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -68,7 +69,8 @@ public class ArLaneLineView extends BaseView {
 
 
     private void initView() {
-        if (isExpandWidet) {
+        isPortMode = true;
+        if (isPortMode) {
             mArLaneLineDrawable = new ArLaneLineDrawable();
             Utils.setViewBackGroundDrawable(this, mArLaneLineDrawable);
         } else {
@@ -127,16 +129,16 @@ public class ArLaneLineView extends BaseView {
         RoadLineManager.LaneType[] laneTypes = roadLineController.getLaneTypes();
         int roadLineRealWidth = roadLineController.getRoadLineRealWidth();
         if (laneTypes.length > 0) {
-            if (isExpandWidet) {
+            if (isPortMode) {
                 mArLaneLineDrawable.setLaneTypes(laneTypes, roadLineController.getScale());
             } else {
                 mLandArLaneLineDrawable.setLaneTypes(laneTypes, roadLineController.getScale());
 
             }
-//            ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) getLayoutParams();
-//            lp.width = roadLineRealWidth;
-//            lp.validate();
-//            setLayoutParams(lp);
+            ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) getLayoutParams();
+            lp.width = roadLineRealWidth;
+            lp.validate();
+            setLayoutParams(lp);
             mArLaneLineDrawable.invalidateSelf();
         } else {
             setVisibility(View.GONE);

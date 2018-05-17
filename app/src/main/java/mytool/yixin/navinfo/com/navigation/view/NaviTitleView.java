@@ -248,7 +248,7 @@ public class NaviTitleView extends BaseView {
 
         private void drawBackGround(Canvas canvas) {
             int color = portBgColor;
-            if (isExpandWidet) {
+            if (isPortMode) {
                 color = landBgColor;
             }
             canvas.drawColor(color);
@@ -267,7 +267,7 @@ public class NaviTitleView extends BaseView {
 
 
         private void initData() {
-            if (isExpandWidet) {
+            if (isPortMode) {
                 mTurnIconLandWidth = LayoutUtils.getPxByDimens(R.dimen.navigate_title_turn_width_land);
                 mTurnIconLandHeight = LayoutUtils.getPxByDimens(R.dimen.navigate_title_turn_height_land);
                 mTurnLandTopOffset = LayoutUtils.getPxByDimens(R.dimen.navigate_title_turn_top_margin_land);
@@ -359,7 +359,7 @@ public class NaviTitleView extends BaseView {
 
             switch (naviController.getType()) {
                 case NO_NEXT_ROAD:
-                    if (isExpandWidet) {
+                    if (isPortMode) {
                         drawRouteLandWithNoNextRoad(canvas);
                     } else {
                         drawRoutePortraitWithNoNextRoad(canvas);
@@ -367,7 +367,7 @@ public class NaviTitleView extends BaseView {
 
                     break;
                 case NEXT_EQUALS_CURRENT:
-                    if (isExpandWidet) {
+                    if (isPortMode) {
                         drawRouteLandWithNextEqualsCurrent(canvas);
                     } else {
                         drawRoutePortraitWithNextEqualsCurrent(canvas);
@@ -380,7 +380,7 @@ public class NaviTitleView extends BaseView {
                 case NEXT_HAS_EXIT:
                 case FORMAL_NEXT:
                 default:
-                    if (isExpandWidet) {
+                    if (isPortMode) {
                         drawLandRouteInformation(canvas);
                     } else {
                         drawPortraitRouteInformation(canvas);
@@ -391,7 +391,7 @@ public class NaviTitleView extends BaseView {
         }
 
         private void updateLandRoutePaint() {
-            if (isExpandWidet) {
+            if (isPortMode) {
                 mDistancePaint.setTextSize(LayoutUtils.getPxByDimens(R.dimen.F11));
                 mDistanceTextPaint.setTextSize(LayoutUtils.getPxByDimens(R.dimen.F4));
                 mRoadPaint.setTextSize(LayoutUtils.getPxByDimens(R.dimen.F13));
@@ -423,7 +423,7 @@ public class NaviTitleView extends BaseView {
             String unite = distanceText.substring(end, distanceText.length());
 
 
-//            if (isExpandWidet && mExpandViewShow) {
+//            if (isPortMode && mExpandViewShow) {
 //
 //                int numberWidth = getTextWidth(mDistancePaint, numberDistance);
 //                int yanWidth = getTextWidth(mDistanceTextPaint, YAN);
@@ -575,7 +575,7 @@ public class NaviTitleView extends BaseView {
             //沿路行驶
             String text = naviController.getType().getKey();
             int x, y;
-//            if (isExpandWidet && mExpandViewShow) {
+//            if (isPortMode && mExpandViewShow) {
 //                x = mLandLeftMargin;
 //                y = mBound.height() / 2 + LayoutUtils.distanceOfBaselineAndCenterY(mDistanceTextPaint);
 //                canvas.drawText(text, x, y, mDistanceTextPaint);
@@ -703,7 +703,7 @@ public class NaviTitleView extends BaseView {
             String text = unite + "后" + currentType.getKey();
 
 
-//            if (isExpandWidet && mExpandViewShow) {
+//            if (isPortMode && mExpandViewShow) {
 //
 //                int numberWidth = getTextWidth(mDistancePaint, numberDistance);
 //                int numberHeight = LayoutUtils.textHeight(mDistancePaint);
@@ -787,7 +787,7 @@ public class NaviTitleView extends BaseView {
         }
 
         private void updateRoutePaint() {
-            if (isExpandWidet) {
+            if (isPortMode) {
                 updateLandRoutePaint();
             } else {
                 updatePortraitRoutePaint();

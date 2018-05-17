@@ -534,9 +534,6 @@
     <dimen name="datastore_tv_margin">13dp</dimen>
 
 
-
-
-
     <!-- DatastoreHelper -->
     <dimen name="datastore_helper_title_size">15sp</dimen>
     <dimen name="datastore_helper_msg_size">12sp</dimen>
@@ -1042,6 +1039,7 @@
 
     <dimen name="smart_destination_portrait_height">43dp</dimen>
     <dimen name="smart_destination_landscape_height">52dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 
 </resources>

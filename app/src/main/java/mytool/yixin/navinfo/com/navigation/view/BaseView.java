@@ -17,7 +17,7 @@ public class BaseView extends View {
     /**
      * 当前为横屏还是竖屏 true为横屏模式
      */
-    public boolean isExpandWidet = true;
+    public boolean isPortMode = false;
 
     public BaseView(Context context) {
         super(context);
@@ -31,11 +31,11 @@ public class BaseView extends View {
         super(context, attrs, defStyleAttr);
     }
 
-    public boolean isExpandWidet() {
-        return isExpandWidet;
+    public boolean isPortMode() {
+        return isPortMode;
     }
 
-    public void setExpandWidet(boolean expandWidet) {
-        isExpandWidet = expandWidet;
+    public void setPortMode(boolean portMode) {
+        isPortMode = portMode;
     }
 }
