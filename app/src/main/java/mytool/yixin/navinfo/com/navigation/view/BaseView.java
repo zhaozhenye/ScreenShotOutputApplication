@@ -14,10 +14,8 @@ import android.view.View;
 
 
 public class BaseView extends View {
-    /**
-     * 当前为横屏还是竖屏 true为横屏模式
-     */
-    public boolean isPortMode = false;
+
+    public boolean landMode = true;
 
     public BaseView(Context context) {
         super(context);
@@ -31,11 +29,11 @@ public class BaseView extends View {
         super(context, attrs, defStyleAttr);
     }
 
-    public boolean isPortMode() {
-        return isPortMode;
+    public boolean isLandMode() {
+        return landMode;
     }
 
-    public void setPortMode(boolean portMode) {
-        isPortMode = portMode;
+    public void setLandMode(boolean landMode) {
+        this.landMode = landMode;
     }
 }

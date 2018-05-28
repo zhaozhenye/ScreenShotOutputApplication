@@ -36,6 +36,18 @@
             android:name=".OnePiexlActivity"
             android:screenOrientation="portrait"
             android:theme="@style/OnePixelActivity"/>
+        <!-- welink start -->
+        <!--<receiver android:name=".WeLinkMessageReceive">-->
+            <!--<intent-filter>-->
+
+                <!--&lt;!&ndash; 指令消息 &ndash;&gt;-->
+                <!--<action android:name="com.wedrive.action.COMMAND_SEND"/>-->
+                <!--&lt;!&ndash; 响应消息 &ndash;&gt;-->
+                <!--<action android:name="com.wedrive.action.COMMAND_RESULT"/>-->
+                <!--&lt;!&ndash; 导航相关消息 &ndash;&gt;-->
+                <!--<action android:name="com.wedrive.action.NAVI_COMMAND_SEND"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
     </application>
 

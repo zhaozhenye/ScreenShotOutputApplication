@@ -41,7 +41,7 @@ public class MapTmcView extends BaseView {
     NaviController naviController = NaviController.getInstance();
 
     public void initView() {
-        isPortMode = true;
+        landMode = true;
         TmcSections tmcSections = naviController.getTmcSections();
         mMapLandTmcDrawable = new MapTmcDrawable(tmcSections, true);
         mMapLandTmcDrawable.setIsHorizontal(false);
@@ -62,7 +62,7 @@ public class MapTmcView extends BaseView {
 //
 //
 //        int[] screenWH = LayoutUtils.getScreenWH();
-//        if (!isPortMode) {
+//        if (!landMode) {
 //            isLineShow = true;
 //            int viewHeight = screenWH[1] - GlobalUtil.getStatusBarHeight();
 //            int rootHeight = parentView.getHeight();
@@ -92,7 +92,7 @@ public class MapTmcView extends BaseView {
     private int getUsedHeight() {
         int height = 0;
         int highWayHeight = 0;
-        if (!isPortMode) {
+        if (!landMode) {
             int titleHeight = LayoutUtils.getPxByDimens(R.dimen.navigate_title_height_portrait);
             int highTop = LayoutUtils.getPxByDimens(R.dimen.high_way_guide_padding);
             int highBottom = LayoutUtils.getPxByDimens(R.dimen.space_13);

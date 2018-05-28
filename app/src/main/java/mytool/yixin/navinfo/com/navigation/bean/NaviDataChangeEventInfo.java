@@ -1,5 +1,7 @@
 package mytool.yixin.navinfo.com.navigation.bean;
 
+import mytool.yixin.navinfo.com.navigation.listener.BaseEventInfo;
+
 /**
  * $desc$
  *
@@ -8,7 +10,7 @@ package mytool.yixin.navinfo.com.navigation.bean;
  */
 
 
-public class NaviDataChangeEventInfo {
+public class NaviDataChangeEventInfo extends BaseEventInfo {
 
 
     /**

@@ -445,7 +445,7 @@
     <dimen name="navigate_title_turn_height_portrait">65dp</dimen>
     <dimen name="navigate_title_turn_small_width_portrait">40dp</dimen>
     <dimen name="navigate_title_turn_small_height_portrait">40dp</dimen>
-    <dimen name="navigate_title_turn_top_margin_land">50dp</dimen>
+    <dimen name="navigate_title_turn_top_margin_land">200dp</dimen>
 
     <!-- ArLaneLineViewer -->
     <dimen name="arlane_line_viewer_item_width">32dp</dimen>

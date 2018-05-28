@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -30,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.mapbar.dynamiclauncher.IImagePath;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,7 +59,6 @@ import mytool.yixin.navinfo.com.navigation.utils.Utils;
 import mytool.yixin.navinfo.com.navigation.view.ArLaneLineView;
 import mytool.yixin.navinfo.com.navigation.view.MapTmcView;
 import mytool.yixin.navinfo.com.navigation.view.NaviTitleView;
-import mytool.yixin.navinfo.com.screenshotserver.IImagePath;
 
 import static mytool.yixin.navinfo.com.navigation.utils.BitmapUtils.getDiskBitmap;
 
@@ -100,13 +101,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private IImagePath mBinder;
     private View btnApp;
     private NaviTitleView naviTitleView;
+    private NaviTitleView naviTitleViewUnexpand;
     private MapTmcView mapTmcView;
     ArLaneLineView laneLineView;
     private RelativeLayout naviBeforeLay;
     private ConstraintLayout naviIngLay;
+    private ConstraintLayout naviIngUnexpandLay;
     private ImageView imgGoHome;
     private ImageView imgGoCompany;
     private ImageView imgMapbar;
+    private Button btnSwitch;
+    private OnePixelReceiver mOnepxReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,12 +123,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main_copy);
         initView();
         init();
+//        mapTmcView.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                         int width =mapTmcView.getMeasuredWidth();
+//            TMC_WIDTH   = width;
+//                         int height =mapTmcView.getMeasuredHeight();
+//            }
+//        });
 
     }
 
     private void initView() {
         naviBeforeLay = findViewById(R.id.id_navigate_befor);
         naviIngLay = findViewById(R.id.id_navigate_ing);
+        naviIngUnexpandLay = findViewById(R.id.id_navigate_ing_unexpand);
 
         imgMapbar = (ImageView) findViewById(R.id.image_mapbar);
         imgGoHome = (ImageView) findViewById(R.id.image_go_home);
@@ -134,6 +148,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         naviTitleView = findViewById(R.id.naviTitleView);
+        btnSwitch = (Button) findViewById(R.id.btn_switch);
+        btnSwitch.setOnClickListener(this);
+        naviTitleViewUnexpand = findViewById(R.id.naviTitleView_unexpand);
         mapTmcView = findViewById(R.id.mapTmcView);
         laneLineView = findViewById(R.id.roadLineView);
         btnBindService = findViewById(R.id.btn_bind_service);
@@ -160,39 +177,115 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String FIELD_COMMAND = "command";
 
-    private JSONObject test(String welinkStateStr) {
-        //整体对象
-        JSONObject stateJson = null;
-        try {
-            stateJson = new JSONObject(welinkStateStr);
-            //command 对象
-            JSONObject jsonObject = stateJson.optJSONObject(FIELD_COMMAND);
-            return jsonObject;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return stateJson;
-
-    }
-
 
     private static final String ACTION_SEND_NAVI_DATA = "com.wedrive.action.NAVI_COMMAND_RESULT";
     private static final String ACTION_SEND_TMC_DATA = "com.wedrive.action.TMC_COMMAND_RESULT";
     private static final String ACTION_SEND_ROAD_LINE_DATA = "com.wedrive.action.ROAD_LINE_COMMAND_RESULT";
     private static final String EXTRA_WELINK = "com.wedrive.extra.COMMAND_DATA";
     private static final String EXTRA_SHOW_ROAD_LINE = "com.wedrive.extra.SHOW_ROAD_LINE";
+    private static final String ACTION_QUERY_WELINK_STATE = "com.wedrive.action.COMMAND_SEND";
 
 
     NaviController naviController = NaviController.getInstance();
     RoadLineManager roadLineManager = RoadLineManager.getInstance();
 
+
+    private static final String FIELD_MODULE_NAME = "moduleName";
+    private static final String DYNAMIC_LAUNCHER = "DynamicLauncher";
+    private static final String FIELD_VERSION = "version";
+    private static final String FIELD_METHOD = "method";
+    /**
+     * 询问互联状态
+     */
+    private static final String METHOD_QUERY_WELINK_STATE = "getWeLinkState";
+    /**
+     * 开始数据交互；目前是指 Launcher 进入前台
+     */
+    private static final String METHOD_START_INTERACTION = "startInteraction";
+    /**
+     * 结束数据交互；目前是指 Launcher 进入后台
+     */
+    private static final String METHOD_STOP_INTERACTION = "endInteraction";
+
+    private static int TMC_WIDTH;
+
+    private static String wrapQueryCommand() {
+        String commandData = null;
+        try {
+            JSONObject jObj = new JSONObject();
+            jObj.put(FIELD_MODULE_NAME, DYNAMIC_LAUNCHER);
+            jObj.put(FIELD_VERSION, 0);
+            JSONObject jComd = new JSONObject();
+            jComd.put(FIELD_METHOD, METHOD_START_INTERACTION);
+//            jComd.put("tmcWidth", );
+            jObj.put(FIELD_COMMAND, jComd);
+            commandData = jObj.toString();
+        } catch (JSONException e) {
+            Log.d("", "拼装查询手车互联状态信息时出错");
+            e.printStackTrace();
+        }
+        return commandData;
+    }
+
+    private static String wrapStopNaviCommand() {
+        String commandData = null;
+        try {
+            JSONObject jObj = new JSONObject();
+            jObj.put(FIELD_MODULE_NAME, DYNAMIC_LAUNCHER);
+            jObj.put(FIELD_VERSION, 0);
+            JSONObject jComd = new JSONObject();
+            jComd.put(FIELD_METHOD, METHOD_STOP_INTERACTION);
+            jObj.put(FIELD_COMMAND, jComd);
+            commandData = jObj.toString();
+        } catch (JSONException e) {
+            Log.d("", "拼装查询手车互联状态信息时出错");
+            e.printStackTrace();
+        }
+        return commandData;
+    }
+
+    private void logSendBroadInfo(@NonNull Intent intentSend) {
+        StringBuilder logInfo = new StringBuilder("out 客户端发送的广播内容：\r\n");
+        final String extraStr = intentSend.getStringExtra(EXTRA_WELINK);
+        logInfo.append("action:").append(intentSend.getAction()).append(";");
+        logInfo.append("extra:").append(extraStr).append(";");
+        logInfo.append("flags:").append(intentSend.getFlags());
+        Log.i("broadTag", logInfo.toString());
+    }
+
+    /**
+     * 开始交互
+     */
+    private void startInteraction() {
+        Intent intent = new Intent(ACTION_QUERY_WELINK_STATE);
+        intent.putExtra(EXTRA_WELINK, wrapQueryCommand());
+        intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        logSendBroadInfo(intent);
+        sendBroadcast(intent);
+
+
+    }
+
+    /**
+     * 停止交互
+     */
+    private void endInteraction() {
+        Intent intent = new Intent(ACTION_QUERY_WELINK_STATE);
+        intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        intent.putExtra(EXTRA_WELINK, wrapStopNaviCommand());
+        logSendBroadInfo(intent);
+        sendBroadcast(intent);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        startInteraction();
         // 注册广播
         IntentFilter iFilter = new IntentFilter();
         iFilter.addAction(ACTION_SEND_NAVI_DATA);
-        registerReceiver(naviDataReceiver, iFilter);
+        registerReceiver(onNaviDataChangeReceiver, iFilter);
         // 注册广播
         IntentFilter iFilter2 = new IntentFilter();
         iFilter2.addAction(ACTION_SEND_TMC_DATA);
@@ -202,16 +295,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         IntentFilter iFilter3 = new IntentFilter();
         iFilter3.addAction(ACTION_SEND_ROAD_LINE_DATA);
         registerReceiver(roadLineDataReceiver, iFilter3);
-
-       //注册监听屏幕的广播
-        OnePixelReceiver        mOnepxReceiver = new OnePixelReceiver();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.SCREEN_OFF");
-        intentFilter.addAction("android.intent.action.SCREEN_ON");
-        intentFilter.addAction("android.intent.action.USER_PRESENT");
-        registerReceiver(mOnepxReceiver, intentFilter);
+        // 注册广播
+        IntentFilter iFilter4 = new IntentFilter();
+        iFilter4.addAction(ACTION_QUERY_WELINK_STATE);
+        registerReceiver(linkStatusReceiver, iFilter4);
 
 
+//        //注册监听屏幕的广播
+//        mOnepxReceiver = new OnePixelReceiver();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction("android.intent.action.SCREEN_OFF");
+//        intentFilter.addAction("android.intent.action.SCREEN_ON");
+//        intentFilter.addAction("android.intent.action.USER_PRESENT");
+//        registerReceiver(mOnepxReceiver, intentFilter);
+
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(onNaviDataChangeReceiver);
+        unregisterReceiver(tmcDataReceiver);
+        unregisterReceiver(roadLineDataReceiver);
+        unregisterReceiver(linkStatusReceiver);
+//        unregisterReceiver(mOnepxReceiver);
+        unBindService();
+        disconectSocket();
+        Log.d(TAG, "call  onDestroy");
     }
 
 
@@ -236,48 +347,83 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    BroadcastReceiver naviDataReceiver = new BroadcastReceiver() {
+    BroadcastReceiver tmcDataReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            System.out.println("接收到 naviData的广播");
+            System.out.println("接收到Tmc的广播");
             String action = intent.getAction();
-            if (action.equalsIgnoreCase(ACTION_SEND_NAVI_DATA)) {
+            if (action.equalsIgnoreCase(ACTION_SEND_TMC_DATA)) {
                 Bundle extras = intent.getExtras();
                 String data = (String) extras.get(EXTRA_WELINK);
-                try {
-                    JSONObject jsonObject = new JSONObject(data);
-                    String moduleName = jsonObject.optString("moduleName");
-                    String version = jsonObject.optString("version");
-                    JSONObject commandJson = jsonObject.optJSONObject("command");
-                    String method = commandJson.optString("method");
-                    JSONObject extDataJson = commandJson.optJSONObject("extData");
-                    if (extDataJson != null) {
-                        showNaviIng(true);
-                        System.out.println(extDataJson.toString());
-                        NaviDataChangeEventInfo naviDataChangeEventInfo = wrapData(extDataJson);
-                        naviController.setNaviDataInfo(naviDataChangeEventInfo);
-                        naviTitleView.update();
-                        mapTmcView.updateUI();
-                    } else {
-                        showNaviIng(false);
-                        Toast.makeText(MainActivity.this, "恭喜到达目的地", Toast.LENGTH_SHORT).show();
-                    }
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+                TmcSections tmcSections = new Gson().fromJson(data, TmcSections.class);
+                naviController.setTmcSections(tmcSections);
+                System.out.println("Tmc tmcSections 的值 ：" + naviController.getTmcSections());
+                mapTmcView.updateUI();
 
             }
         }
     };
 
+
+    /**
+     * 结束导航，使 Launcher 恢复初始化状态endInteraction
+     */
+    private static final String METHOD_NAVI_STOPED = "stopGuideNodeInfo";
+
+    BroadcastReceiver onNaviDataChangeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            System.out.println("接收到 naviData的广播");
+            String action = intent.getAction();
+            if (ACTION_SEND_NAVI_DATA.equalsIgnoreCase(action)) {
+                JSONObject extDataJson = parseIntentData(intent);
+                if (extDataJson != null) {
+                    showNaviIng(true);
+                    String routeBase = extDataJson.optString("routeBase");
+                    TmcSections tmcSections = new Gson().fromJson(routeBase, TmcSections.class);
+                    naviController.setTmcSections(tmcSections);
+
+                    NaviDataChangeEventInfo naviDataChangeEventInfo = wrapData(extDataJson);
+                    naviController.setNaviDataInfo(naviDataChangeEventInfo);
+                    System.out.println("naviData tmcSections 的值 ：" + naviController.getTmcSections());
+                    if (Configs.NAVI_UNEXPAND_MODE) {
+                        naviTitleViewUnexpand.update();
+                    } else {
+                        naviTitleView.update();
+                        mapTmcView.updateUI();
+                    }
+
+                } else {
+                    showNaviIng(false);
+                    Toast.makeText(MainActivity.this, "恭喜到达目的地", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        }
+
+    };
+
     private void showNaviIng(boolean show) {
+        show=true;
         if (show) {
             naviBeforeLay.setVisibility(View.GONE);
-            naviIngLay.setVisibility(View.VISIBLE);
+
+            if (Configs.NAVI_UNEXPAND_MODE) {
+                naviIngLay.setVisibility(View.GONE);
+                naviIngUnexpandLay.setVisibility(View.VISIBLE);
+            } else {
+                naviIngLay.setVisibility(View.VISIBLE);
+                naviIngUnexpandLay.setVisibility(View.GONE);
+            }
+
+            if (Configs.NAVI_UNEXPAND_MODE) {
+                naviTitleViewUnexpand.update();
+            } else {
+                naviTitleView.update();
+                mapTmcView.updateUI();
+            }
+
         } else {
             naviBeforeLay.setVisibility(View.VISIBLE);
             naviIngLay.setVisibility(View.GONE);
@@ -292,44 +438,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             System.out.println("接收到Roadline的广播");
             String action = intent.getAction();
             if (action.equalsIgnoreCase(ACTION_SEND_ROAD_LINE_DATA)) {
+                JSONObject extDataJson = parseIntentData(intent);
                 RoadLineController roadLineController = RoadLineController.getInstance();
-                Bundle extras = intent.getExtras();
-                String data = (String) extras.get(EXTRA_WELINK);
-                boolean showRoadLine = (Boolean) extras.get(EXTRA_SHOW_ROAD_LINE);
-                if (showRoadLine) {
-                    LaneModel mLaneModel = new Gson().fromJson(data, LaneModel.class);
-                    System.out.println("mLaneModel 的值 ：" + mLaneModel.toString());
+                if (extDataJson != null) {
+                    String extraData = extDataJson.optString(EXTRA_WELINK);
+                    boolean showRoadLine = extDataJson.optBoolean(EXTRA_SHOW_ROAD_LINE);
+                    if (showRoadLine) {
+                        LaneModel mLaneModel = new Gson().fromJson(extraData, LaneModel.class);
+                        System.out.println("mLaneModel 的值 ：" + mLaneModel.toString());
 
-                    RoadLineManager.LaneType[] laneTypes = roadLineManager.parser(mLaneModel);
+                        RoadLineManager.LaneType[] laneTypes = roadLineManager.parser(mLaneModel);
 
-                    //设置数据
-                    roadLineController.setmShowRoadLine(true);
-                    roadLineController.setLaneTypes(laneTypes);
-                    roadLineController.update();
-                    //更新UI
-                    laneLineView.notifyLaneLineChange();
-                    laneLineView.setVisibility(View.VISIBLE);
-                } else {
-                    roadLineController.setmShowRoadLine(false);
-                    laneLineView.setVisibility(View.GONE);
+                        //设置数据
+                        roadLineController.setmShowRoadLine(true);
+                        roadLineController.setLaneTypes(laneTypes);
+                        roadLineController.update();
+                        //更新UI
+                        laneLineView.notifyLaneLineChange();
+                        laneLineView.setVisibility(View.VISIBLE);
+                    } else {
+                        roadLineController.setmShowRoadLine(false);
+                        laneLineView.setVisibility(View.GONE);
+                    }
                 }
 
-
             }
+
         }
     };
-    BroadcastReceiver tmcDataReceiver = new BroadcastReceiver() {
+
+    private JSONObject parseIntentData(Intent intent) {
+        JSONObject jsonObject = null;
+        Bundle extras = intent.getExtras();
+        String data = (String) extras.get(EXTRA_WELINK);
+        System.out.println("onNaviDataChangeReceiver data:" + data);
+        try {
+            jsonObject = new JSONObject(data);
+            String moduleName = jsonObject.optString("moduleName");
+            String version = jsonObject.optString("version");
+            JSONObject commandJson = jsonObject.optJSONObject("command");
+            String method = commandJson.optString("method");
+            JSONObject extDataJson = commandJson.optJSONObject("extData");
+            return extDataJson;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
+
+    BroadcastReceiver linkStatusReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            System.out.println("接收到Tmc的广播");
+            System.out.println("接收到linkStatus的广播");
             String action = intent.getAction();
-            if (action.equalsIgnoreCase(ACTION_SEND_TMC_DATA)) {
+            if (action.equalsIgnoreCase(ACTION_QUERY_WELINK_STATE)) {
                 Bundle extras = intent.getExtras();
                 String data = (String) extras.get(EXTRA_WELINK);
-                TmcSections tmcSections = new Gson().fromJson(data, TmcSections.class);
-                System.out.println("tmcSections 的值 ：" + tmcSections.toString());
-                naviController.setTmcSections(tmcSections);
-                mapTmcView.updateUI();
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = new JSONObject(data);
+                    String moduleName = jsonObject.optString(FIELD_MODULE_NAME);
+                    String version = jsonObject.optString(FIELD_VERSION);
+                    JSONObject commandJson = jsonObject.optJSONObject(FIELD_COMMAND);
+                    String method = commandJson.optString(FIELD_METHOD);
+                    if (METHOD_QUERY_WELINK_STATE.equalsIgnoreCase(method)) {
+                        startInteraction();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
             }
         }
@@ -478,7 +658,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void run() {
                                 imageView.setImageBitmap(transferBitmap);
-                                mHandler.postDelayed(this, 16);
+                                mHandler.postDelayed(this, 1000);
                             }
                         });
                         System.out.println("transfer and set transferBitmap time is :" + (System.currentTimeMillis() - beforeTime));
@@ -729,13 +909,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //跳转到导航
             case R.id.btn_app:
-                startNaviDemoApp();
+                startNaviApp();
+//                startNaviDemoApp();
+//                startApp();
+                break;
+            //切换到展开状态
+            case R.id.btn_switch:
+                Configs.NAVI_UNEXPAND_MODE = false;
                 break;
             default:
                 break;
         }
     }
-
 
 
 
@@ -761,7 +946,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-
+        endInteraction();
     }
 
 
@@ -804,14 +989,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(naviDataReceiver);
-        unregisterReceiver(tmcDataReceiver);
-        unregisterReceiver(roadLineDataReceiver);
-        unBindService();
-        disconectSocket();
-        Log.d(TAG, "call  onDestroy");
-    }
+
 }

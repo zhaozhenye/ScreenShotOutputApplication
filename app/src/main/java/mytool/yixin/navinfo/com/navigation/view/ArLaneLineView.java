@@ -69,8 +69,8 @@ public class ArLaneLineView extends BaseView {
 
 
     private void initView() {
-        isPortMode = true;
-        if (isPortMode) {
+        landMode = true;
+        if (landMode) {
             mArLaneLineDrawable = new ArLaneLineDrawable();
             Utils.setViewBackGroundDrawable(this, mArLaneLineDrawable);
         } else {
@@ -129,7 +129,7 @@ public class ArLaneLineView extends BaseView {
         RoadLineManager.LaneType[] laneTypes = roadLineController.getLaneTypes();
         int roadLineRealWidth = roadLineController.getRoadLineRealWidth();
         if (laneTypes.length > 0) {
-            if (isPortMode) {
+            if (landMode) {
                 mArLaneLineDrawable.setLaneTypes(laneTypes, roadLineController.getScale());
             } else {
                 mLandArLaneLineDrawable.setLaneTypes(laneTypes, roadLineController.getScale());
